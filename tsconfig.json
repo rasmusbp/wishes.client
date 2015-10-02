@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true
+    },
+    "filesGlob": [
+        "./app/layers/*.ts",
+        "./app/layers/**/*.ts"
+    ],
+    "files": [
+        "./app/layers/app.module.ts",
+        "./app/layers/main.d.ts",
+        "./app/layers/main.ts",
+        "./app/layers/root.routes.ts",
+        "./app/layers/admin/admin.ctrl.ts",
+        "./app/layers/admin/admin.routes.ts",
+        "./app/layers/authentication/auth.routes.ts",
+        "./app/layers/authentication/isAuthenticated.ts",
+        "./app/layers/authentication/login.ctrl.ts",
+        "./app/layers/authentication/login.directive.ts",
+        "./app/layers/layout/layout.ctrl.ts",
+        "./app/layers/utilities/Flag.ts",
+        "./app/layers/wishes/wishes.ctrl.ts",
+        "./app/layers/wishes/wishes.routes.ts"
+    ]
+}

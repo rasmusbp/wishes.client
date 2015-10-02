@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li ui-sref="root.wishes"
+          ui-sref-active="active">
+          <a href>Vores ønsker</a>
+      </li>
+      <li
+        ui-sref="root.admin"
+        ui-sref-active="active"
+        ng-if="layoutCtrl.MyUser.isAuthenticated()"
+         >
+        <a href>Admin</a>
+      </li>
+      <li
+        ui-sref="root.login"
+        ui-sref-active="active"
+        ng-if="!layoutCtrl.MyUser.isAuthenticated()">
+        <a href>Login</a>
+      </li>
+      <li
+        ui-sref="root.logout"
+        ui-sref-active="active"
+        ng-if="layoutCtrl.MyUser.isAuthenticated()">
+        <a href>Logout</a>
+      </li>
+    </ul>
+  </div>
+
+  <div ui-view="login"></div>
+  <div ui-view="admin"></div>
+  <div ui-view="public"></div>
+
+  <div class="footer">
+    <p>♥ from the Yeoman team</p>
+  </div>
+
+</div>
