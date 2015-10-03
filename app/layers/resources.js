@@ -1122,9 +1122,9 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Wish.category() instead.
-        "prototype$__get__category": {
-          url: urlBase + "/Wishes/:id/category",
+        // INTERNAL. Use Wish.owner() instead.
+        "prototype$__get__owner": {
+          url: urlBase + "/Wishes/:id/owner",
           method: "GET"
         },
 
@@ -1606,62 +1606,62 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Owner.category.findById() instead.
-        "::findById::Owner::category": {
+        // INTERNAL. Use Owner.wishes.findById() instead.
+        "::findById::Owner::wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Owner.category.destroyById() instead.
-        "::destroyById::Owner::category": {
+        // INTERNAL. Use Owner.wishes.destroyById() instead.
+        "::destroyById::Owner::wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Owner.category.updateById() instead.
-        "::updateById::Owner::category": {
+        // INTERNAL. Use Owner.wishes.updateById() instead.
+        "::updateById::Owner::wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use Owner.category() instead.
-        "::get::Owner::category": {
+        // INTERNAL. Use Owner.wishes() instead.
+        "::get::Owner::wishes": {
           isArray: true,
-          url: urlBase + "/Owners/:id/category",
+          url: urlBase + "/Owners/:id/wishes",
           method: "GET"
         },
 
-        // INTERNAL. Use Owner.category.create() instead.
-        "::create::Owner::category": {
-          url: urlBase + "/Owners/:id/category",
+        // INTERNAL. Use Owner.wishes.create() instead.
+        "::create::Owner::wishes": {
+          url: urlBase + "/Owners/:id/wishes",
           method: "POST"
         },
 
-        // INTERNAL. Use Owner.category.createMany() instead.
-        "::createMany::Owner::category": {
+        // INTERNAL. Use Owner.wishes.createMany() instead.
+        "::createMany::Owner::wishes": {
           isArray: true,
-          url: urlBase + "/Owners/:id/category",
+          url: urlBase + "/Owners/:id/wishes",
           method: "POST"
         },
 
-        // INTERNAL. Use Owner.category.destroyAll() instead.
-        "::delete::Owner::category": {
-          url: urlBase + "/Owners/:id/category",
+        // INTERNAL. Use Owner.wishes.destroyAll() instead.
+        "::delete::Owner::wishes": {
+          url: urlBase + "/Owners/:id/wishes",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Owner.category.count() instead.
-        "::count::Owner::category": {
-          url: urlBase + "/Owners/:id/category/count",
+        // INTERNAL. Use Owner.wishes.count() instead.
+        "::count::Owner::wishes": {
+          url: urlBase + "/Owners/:id/wishes/count",
           method: "GET"
         },
       }
@@ -1803,12 +1803,12 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name resources.Wish#category
+         * @name resources.Wish#owner
          * @methodOf resources.Wish
          *
          * @description
          *
-         * Fetches belongsTo relation category.
+         * Fetches belongsTo relation owner.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1831,9 +1831,9 @@ module.factory(
          * This usually means the response is a `Owner` object.)
          * </em>
          */
-        R.category = function() {
+        R.owner = function() {
           var TargetResource = $injector.get("Owner");
-          var action = TargetResource["::get::Wish::category"];
+          var action = TargetResource["::get::Wish::owner"];
           return action.apply(R, arguments);
         };
 
@@ -3300,55 +3300,55 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Owner.category.findById() instead.
-        "prototype$__findById__category": {
+        // INTERNAL. Use Owner.wishes.findById() instead.
+        "prototype$__findById__wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Owner.category.destroyById() instead.
-        "prototype$__destroyById__category": {
+        // INTERNAL. Use Owner.wishes.destroyById() instead.
+        "prototype$__destroyById__wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Owner.category.updateById() instead.
-        "prototype$__updateById__category": {
+        // INTERNAL. Use Owner.wishes.updateById() instead.
+        "prototype$__updateById__wishes": {
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Owners/:id/category/:fk",
+          url: urlBase + "/Owners/:id/wishes/:fk",
           method: "PUT"
         },
 
-        // INTERNAL. Use Owner.category() instead.
-        "prototype$__get__category": {
+        // INTERNAL. Use Owner.wishes() instead.
+        "prototype$__get__wishes": {
           isArray: true,
-          url: urlBase + "/Owners/:id/category",
+          url: urlBase + "/Owners/:id/wishes",
           method: "GET"
         },
 
-        // INTERNAL. Use Owner.category.create() instead.
-        "prototype$__create__category": {
-          url: urlBase + "/Owners/:id/category",
+        // INTERNAL. Use Owner.wishes.create() instead.
+        "prototype$__create__wishes": {
+          url: urlBase + "/Owners/:id/wishes",
           method: "POST"
         },
 
-        // INTERNAL. Use Owner.category.destroyAll() instead.
-        "prototype$__delete__category": {
-          url: urlBase + "/Owners/:id/category",
+        // INTERNAL. Use Owner.wishes.destroyAll() instead.
+        "prototype$__delete__wishes": {
+          url: urlBase + "/Owners/:id/wishes",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Owner.category.count() instead.
-        "prototype$__count__category": {
-          url: urlBase + "/Owners/:id/category/count",
+        // INTERNAL. Use Owner.wishes.count() instead.
+        "prototype$__count__wishes": {
+          url: urlBase + "/Owners/:id/wishes/count",
           method: "GET"
         },
 
@@ -3771,9 +3771,9 @@ module.factory(
           method: "POST"
         },
 
-        // INTERNAL. Use Wish.category() instead.
-        "::get::Wish::category": {
-          url: urlBase + "/Wishes/:id/category",
+        // INTERNAL. Use Wish.owner() instead.
+        "::get::Wish::owner": {
+          url: urlBase + "/Wishes/:id/owner",
           method: "GET"
         },
       }
@@ -3914,27 +3914,27 @@ module.factory(
 
     /**
      * @ngdoc object
-     * @name resources.Owner.category
-     * @header resources.Owner.category
+     * @name resources.Owner.wishes
+     * @header resources.Owner.wishes
      * @object
      * @description
      *
-     * The object `Owner.category` groups methods
+     * The object `Owner.wishes` groups methods
      * manipulating `Wish` instances related to `Owner`.
      *
-     * Call {@link resources.Owner#category Owner.category()}
+     * Call {@link resources.Owner#wishes Owner.wishes()}
      * to query all related instances.
      */
 
 
         /**
          * @ngdoc method
-         * @name resources.Owner#category
+         * @name resources.Owner#wishes
          * @methodOf resources.Owner
          *
          * @description
          *
-         * Queries category of Owner.
+         * Queries wishes of Owner.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -3957,20 +3957,20 @@ module.factory(
          * This usually means the response is a `Wish` object.)
          * </em>
          */
-        R.category = function() {
+        R.wishes = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::get::Owner::category"];
+          var action = TargetResource["::get::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#count
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#count
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Counts category of Owner.
+         * Counts wishes of Owner.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -3992,20 +3992,20 @@ module.factory(
          *
          *  - `count` – `{number=}` - 
          */
-        R.category.count = function() {
+        R.wishes.count = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::count::Owner::category"];
+          var action = TargetResource["::count::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#create
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#create
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Creates a new instance in category of this model.
+         * Creates a new instance in wishes of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -4030,20 +4030,20 @@ module.factory(
          * This usually means the response is a `Wish` object.)
          * </em>
          */
-        R.category.create = function() {
+        R.wishes.create = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::create::Owner::category"];
+          var action = TargetResource["::create::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#createMany
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#createMany
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Creates a new instance in category of this model.
+         * Creates a new instance in wishes of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -4068,20 +4068,20 @@ module.factory(
          * This usually means the response is a `Wish` object.)
          * </em>
          */
-        R.category.createMany = function() {
+        R.wishes.createMany = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::createMany::Owner::category"];
+          var action = TargetResource["::createMany::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#destroyAll
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#destroyAll
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Deletes all category of this model.
+         * Deletes all wishes of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -4099,26 +4099,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.category.destroyAll = function() {
+        R.wishes.destroyAll = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::delete::Owner::category"];
+          var action = TargetResource["::delete::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#destroyById
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#destroyById
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Delete a related item by id for category.
+         * Delete a related item by id for wishes.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - PersistedModel id
          *
-         *  - `fk` – `{*}` - Foreign key for category
+         *  - `fk` – `{*}` - Foreign key for wishes
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4132,26 +4132,26 @@ module.factory(
          *
          * This method returns no data.
          */
-        R.category.destroyById = function() {
+        R.wishes.destroyById = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::destroyById::Owner::category"];
+          var action = TargetResource["::destroyById::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#findById
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#findById
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Find a related item by id for category.
+         * Find a related item by id for wishes.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - PersistedModel id
          *
-         *  - `fk` – `{*}` - Foreign key for category
+         *  - `fk` – `{*}` - Foreign key for wishes
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4168,26 +4168,26 @@ module.factory(
          * This usually means the response is a `Wish` object.)
          * </em>
          */
-        R.category.findById = function() {
+        R.wishes.findById = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::findById::Owner::category"];
+          var action = TargetResource["::findById::Owner::wishes"];
           return action.apply(R, arguments);
         };
 
         /**
          * @ngdoc method
-         * @name resources.Owner.category#updateById
-         * @methodOf resources.Owner.category
+         * @name resources.Owner.wishes#updateById
+         * @methodOf resources.Owner.wishes
          *
          * @description
          *
-         * Update a related item by id for category.
+         * Update a related item by id for wishes.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - PersistedModel id
          *
-         *  - `fk` – `{*}` - Foreign key for category
+         *  - `fk` – `{*}` - Foreign key for wishes
          *
          * @param {Object} postData Request data.
          *
@@ -4208,9 +4208,9 @@ module.factory(
          * This usually means the response is a `Wish` object.)
          * </em>
          */
-        R.category.updateById = function() {
+        R.wishes.updateById = function() {
           var TargetResource = $injector.get("Wish");
-          var action = TargetResource["::updateById::Owner::category"];
+          var action = TargetResource["::updateById::Owner::wishes"];
           return action.apply(R, arguments);
         };
 

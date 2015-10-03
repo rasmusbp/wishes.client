@@ -8,10 +8,6 @@ class Controller {
   busyFlag: IFlag;
   submit() {
 
-    if (!this.$scope['loginForm'].$valid) {
-      return;
-    }
-
     this.busyFlag.switchOn();
 
     this.MyUser.login(this.credentials,
@@ -21,13 +17,10 @@ class Controller {
       },
       // fail
       ()=> {
-        this.$mdToast.show({
-          templateUrl: 'loginFormErrorMessage',
-          parent : this.$element[0].querySelectorAll('.message'),
-          hideDelay: 3000,
-          position: 'bottom'
-        });
+        this.busyFlag.switchOff();
+        alertify.error('Forkert brugernavn eller password');
       });
+
   }
   constructor(
     private $scope : ng.IScope,
@@ -47,7 +40,8 @@ function loginForm() {
     scope: {},
     templateUrl: 'layers/authentication/login.directive.view.html',
     controller: Controller,
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    bindToController: true
   }
 }
 

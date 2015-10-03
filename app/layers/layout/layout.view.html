@@ -36,6 +36,15 @@
   </div>
 </nav>
 
+<!-- /admin tools -->
+<div class="w-tools" ng-if="layoutCtrl.MyUser.isAuthenticated()">
+  <button class="btn btn-link pull-right">
+    <img src="images/icons/add.svg" class="w-avatar" />
+  </button>
+</div>
+<!-- /admin tools -->
+
+
 <div class="container">
 
   <div ui-view="login"></div>

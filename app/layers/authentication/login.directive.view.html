@@ -1,19 +1,5 @@
-<div class="message"></div>
-<form name="loginForm"  ng-submit="vm.submit()" >
-  <md-input-container>
-    <label>Brugernavn</label>
-    <input name="username" ng-model="vm.credentials.username" required>
-  </md-input-container>
-  <md-input-container>
-    <label>Password</label>
-    <input name="password" type="password" ng-model="vm.credentials.password" required>
-  </md-input-container>
-  <md-input-container>
-    <md-button type="submit" class="md-raised md-primary">Login</md-button>
-  </md-input-container>
+<form class="form-horizontal" name="loginForm" ng-submit="vm.submit()">
+  <input type="text" class="form-control margin-bottom-10" ng-model="vm.credentials.username" placeholder="Brugernavn" required="">
+  <input type="password" class="form-control margin-bottom-10"  ng-model="vm.credentials.password"  placeholder="Password">
+  <button type="submit" class="btn btn-primary">Log ind</button>
 </form>
-<script id="loginFormErrorMessage" type="text/ng-template">
-  <md-toast>
-    <span flex>Forkert username eller password</span>
-  </md-toast>
-</script>

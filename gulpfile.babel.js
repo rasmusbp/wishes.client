@@ -130,7 +130,10 @@ gulp.task('serve', ['webpack:dev', 'styles', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]);
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch([
+    'app/styles/**/*.scss',
+    'app/layers/**/*.scss'
+  ], ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('app/layers/**/*.ts', ['webpack:dev']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);

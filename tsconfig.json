@@ -4,6 +4,7 @@
         "module": "commonjs",
         "sourceMap": true
     },
+    "compileOnSave": false,
     "filesGlob": [
         "./app/layers/*.ts",
         "./app/layers/**/*.ts"
@@ -19,8 +20,14 @@
         "./app/layers/authentication/isAuthenticated.ts",
         "./app/layers/authentication/login.ctrl.ts",
         "./app/layers/authentication/login.directive.ts",
+        "./app/layers/components/spinners/spinner.directive.ts",
+        "./app/layers/components/wish-items/wish.item.admin-list.ctrl.ts",
+        "./app/layers/components/wish-items/wish.item.directive.ts",
+        "./app/layers/edit/edit.ctrl.ts",
+        "./app/layers/edit/edit.routes.ts",
         "./app/layers/layout/layout.ctrl.ts",
         "./app/layers/utilities/Flag.ts",
+        "./app/layers/utilities/defer.ts",
         "./app/layers/wishes/wishes.ctrl.ts",
         "./app/layers/wishes/wishes.routes.ts"
     ]

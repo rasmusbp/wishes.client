@@ -1,25 +1,39 @@
-<md-whiteframe class="md-whiteframe-1dp">
-<md-content>
-    <md-list>
+<h1>Admin</h1>
+<!-- wishes -->
+<div
+  ng-repeat="owner in adminCtrl.owners"
+  class="panel panel-info">
+  <div class="panel-heading">
+   <h3 class="panel-title">{{owner.name}}</h3>
+ </div>
+ <div class="panel-body">
+   <ul class="w-list-clean">
 
-      <div ng-repeat="owner in ['Rasmus', 'Camilla', 'August', 'Solveig', 'Fælles']">
-        <md-subheader class="md-no-sticky">{{owner}}</md-subheader>
-        <md-divider ></md-divider>
-        <md-list-item class="md-2-line" layout ng-repeat="item in [1,2,3]">
-          <img ng-src="http://placekitten.com/g/32/32" class="md-avatar" alt="{{item.who}}" />
-          <div flex class="md-list-item-text">
-            <h3>Et ønske</h3>
-            <p>En kort beskrivelse</p>
-          </div>
-          <div layout layout-align="space-between">
-            <md-switch flex ng-model="data.cb1" aria-label="Switch 1"></md-switch>
-            <md-button flex class="md-icon-button" aria-label="More">
-                <md-icon md-svg-icon="images/icons/edit.svg"></md-icon>
-            </md-button>
-          </div>
-        </md-list-item>
-      <div>
+     <!-- empty state -->
+     <li
+       class="w-list-clean--item"
+       ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length === 0">
+       <div class="w-media-box">
+         <img src="images/icons/empty.svg" class="w-media-box--figure w-avatar" />
+         <p class="w-media-box--body text-muted">Der er ingen ønsker tilføjet for {{owner.name}}.</p>
+       </div>
+     </li>
+     <!-- /empty state -->
 
-    </md-list>
-  </md-content>
-</md-whiteframe>
+     <!-- wishes -->
+     <li
+       class="w-list-clean--item"
+       ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length > 0"
+       ng-repeat="wish in adminCtrl.wishes | filter:{ownerId: owner.id}"
+     >
+       <w-wish-item
+          type="admin-list"
+          wish="wish"
+       ></w-wish-item>
+     </li>
+     <!-- /wishes -->
+
+   </ul>
+  </div>
+</div>
+<!-- /wishes -->

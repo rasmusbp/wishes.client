@@ -4,6 +4,14 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "../layers/components/spinners/spinner.directive.style.scss";
+@import "../layers/components/media-box.style.scss";
+@import "../layers/components/list.style.scss";
+@import "../layers/components/avatar.style.scss";
+@import "../layers/components/alertify.style.scss";
+@import "../layers/components/admin-tools.style.scss";
+@import "../layers/components/surgical.style.scss";
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -11,14 +19,17 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
+
 html, body {
   height: auto;
+  background: #e2e2e2;
 }
+
 body {
   padding-top: 0;
   padding-bottom: 0;
-  background: #f1f1f1;
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -27,6 +38,9 @@ body {
   margin-top:40px;
   padding-left: 15px;
   padding-right: 15px;
+}
+.navbar-default .navbar-collapse {
+    border-bottom: 1px solid #ddd;
 }
 
 /* Custom page header */
@@ -96,7 +110,23 @@ body {
   }
 }
 
-// Angular material patches
+// Third-party CSS tweaks
+.btn {
+  .switch {
+    margin-bottom: -6px;
+  }
+}
+.switch {
+  &:focus {
+    outline: none;
+  }
+  width: 42px;
+  height: 20px;
+  small {
+    width: 20px;
+    height: 20px;
+  }
+}
 md-whiteframe {
   background: #fff;
 }
