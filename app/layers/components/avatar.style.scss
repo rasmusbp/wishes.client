@@ -1,0 +1,12 @@
+$default-size: 40px;
+$small-size: 20px;
+.w-avatar {
+  width: $default-size;
+  height: $default-size;
+  border-radius: 50%;
+
+  &.w-avatar__small {
+    width: $small-size;
+    height: $small-size;
+  }
+}

@@ -1,0 +1,48 @@
+<div ng-controller="wishItemAdminListCtrl as thisCtrl">
+<w-spinner-wrapper show-when="thisCtrl.isBusy" type="linear">
+  <div class="w-media-box" ng-style="{'opacity': thisCtrl.isDeleted ? 0.3 : 1}">
+
+    <!-- summary -->
+    <img ng-src="{{ wishItemMainCtrl.wish.imageUrl }}" class="w-media-box--figure w-avatar" />
+    <div class="w-media-box--body">
+      <h5>{{ wishItemMainCtrl.wish.title }}</h5>
+      <p class="text-muted">{{ wishItemMainCtrl.wish.description }}</p>
+    </div>
+    <!-- /summary -->
+
+    <!-- actions -->
+    <div ng-if="!thisCtrl.isDeleted" class="btn-group" role="group">
+
+      <!-- toggle active -->
+      <button type="button" class="btn btn-default">
+        <!-- NOTE:
+            ng-change="thisCtrl.updateWish" is without ´()´
+            due to a bug in the <switch> directive
+          -->
+        <switch
+          class="small green"
+          name="isActive"
+          ng-model="wishItemMainCtrl.wish.isActive"
+          ng-change="thisCtrl.updateWish"
+        ></switch>
+      </button>
+      <!-- /toggle active -->
+
+      <!-- edit -->
+      <button type="button" class="btn btn-default">
+        <img src="images/icons/edit.svg" class="w-avatar w-avatar__small" />
+      </button>
+      <!-- /edit -->
+
+      <!-- delete -->
+      <button type="button" class="btn btn-default" ng-click="thisCtrl.deleteWish()">
+        <img src="images/icons/delete.svg" class="w-avatar w-avatar__small" />
+      </button>
+      <!-- /delete -->
+
+    </div>
+    <!-- /actions -->
+
+  </div>
+</w-spinner-wrapper>
+</div>

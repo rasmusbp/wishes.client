@@ -1,0 +1,17 @@
+.w-list-clean {
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .w-list-clean--item {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+
+    &:first-child {
+      border-top: none;
+    }
+
+  }
+
+}
