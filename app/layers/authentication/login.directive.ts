@@ -25,7 +25,7 @@ class Controller {
           templateUrl: 'loginFormErrorMessage',
           parent : this.$element[0].querySelectorAll('.message'),
           hideDelay: 3000,
-          position: 'top right'
+          position: 'bottom'
         });
       });
   }

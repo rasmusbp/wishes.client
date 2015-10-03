@@ -1,7 +1,14 @@
-<div class="container">
-
-  <div class="header">
-    <ul class="nav nav-pills pull-right">
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+     <button type="button"
+     class="navbar-toggle collapsed"
+     data-toggle="collapse"
+     data-target="#menu">
+       <span class="glyphicon glyphicon-menu-hamburger"></span>
+     </button>
+   </div>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="nav navbar-nav">
       <li ui-sref="root.wishes"
           ui-sref-active="active">
           <a href>Vores ønsker</a>
@@ -27,13 +34,18 @@
       </li>
     </ul>
   </div>
+</nav>
+
+<div class="container">
 
   <div ui-view="login"></div>
   <div ui-view="admin"></div>
   <div ui-view="public"></div>
 
-  <div class="footer">
-    <p>♥ from the Yeoman team</p>
-  </div>
+</div>
 
+<div class="footer">
+  <div class="container">
+    <p>♥ fra Frederiksberg</p>
+  </div>
 </div>

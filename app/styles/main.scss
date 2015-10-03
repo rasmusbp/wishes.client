@@ -11,16 +11,20 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+html, body {
+  height: auto;
+}
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #f1f1f1;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
+  margin-top:40px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -90,4 +94,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+// Angular material patches
+md-whiteframe {
+  background: #fff;
 }

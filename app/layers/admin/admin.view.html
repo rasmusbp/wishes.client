@@ -1,1 +1,25 @@
-admin view
+<md-whiteframe class="md-whiteframe-1dp">
+<md-content>
+    <md-list>
+
+      <div ng-repeat="owner in ['Rasmus', 'Camilla', 'August', 'Solveig', 'Fælles']">
+        <md-subheader class="md-no-sticky">{{owner}}</md-subheader>
+        <md-divider ></md-divider>
+        <md-list-item class="md-2-line" layout ng-repeat="item in [1,2,3]">
+          <img ng-src="http://placekitten.com/g/32/32" class="md-avatar" alt="{{item.who}}" />
+          <div flex class="md-list-item-text">
+            <h3>Et ønske</h3>
+            <p>En kort beskrivelse</p>
+          </div>
+          <div layout layout-align="space-between">
+            <md-switch flex ng-model="data.cb1" aria-label="Switch 1"></md-switch>
+            <md-button flex class="md-icon-button" aria-label="More">
+                <md-icon md-svg-icon="images/icons/edit.svg"></md-icon>
+            </md-button>
+          </div>
+        </md-list-item>
+      <div>
+
+    </md-list>
+  </md-content>
+</md-whiteframe>
