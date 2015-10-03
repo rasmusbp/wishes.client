@@ -28,6 +28,7 @@
         "./app/layers/layout/layout.ctrl.ts",
         "./app/layers/utilities/Flag.ts",
         "./app/layers/utilities/defer.ts",
+        "./app/layers/utilities/statesHelpers.ts",
         "./app/layers/wishes/wishes.ctrl.ts",
         "./app/layers/wishes/wishes.routes.ts"
     ]

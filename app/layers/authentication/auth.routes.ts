@@ -1,8 +1,11 @@
 /// <reference path="../main.d.ts"/>
 
-export var authRoutes = function authRoutes( $stateProvider: ng.ui.IStateProvider ) {
+export var authRoutes = function authRoutes( statesProvider, $stateProvider: ng.ui.IStateProvider ) {
+
+  var states = statesProvider.get();
+
   $stateProvider
-  	.state('root.login', {
+  	.state(states.login, {
 		  url: '/login',
       views: {
         'login': {
@@ -11,26 +14,26 @@ export var authRoutes = function authRoutes( $stateProvider: ng.ui.IStateProvide
         }
       }
   	})
-    .state('root.logout', {
+    .state(states.logout, {
         onEnter: (
-          $state: ng.ui.IStateService,
+          goToState,
           MyUser /*: loopback.IMyUser <- interface in the making */
         ) => {
           MyUser.logout(() => {
-            $state.go('root.wishes');
+            goToState.wishes();
           });
         }
   	});
 }
 
 export var denyUnauthorizedAccess = function denyUnauthorizedAccess(
-  $state: ng.ui.IStateService,
+  goToState,
   $rootScope : ng.IRootScopeService
 ) {
   $rootScope.$on('$stateChangeError', ( ...args ) => {
-      var error = _.last(args);
+      var error = args[args.length - 1];
       if ( error === 'unauthorized') {
-        $state.go('root.login');
+        goToState.login();
       }
   });
 }

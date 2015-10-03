@@ -1,9 +1,11 @@
 /// <reference path="./main.d.ts"/>
 
-function rootRoutes( $stateProvider: ng.ui.IStateProvider ) {
+function rootRoutes( statesProvider, $stateProvider: ng.ui.IStateProvider ) {
+
+  var states = statesProvider.get();
 
   $stateProvider
-    .state('root', {
+    .state(states.root, {
       url: '',
       templateUrl: 'layers/layout/layout.view.html',
       controller: 'layoutCtrl',

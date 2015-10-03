@@ -1,8 +1,11 @@
 /// <reference path="../main.d.ts"/>
 
-function adminRoutes( $stateProvider: ng.ui.IStateProvider ) {
+function adminRoutes( statesProvider, $stateProvider: ng.ui.IStateProvider ) {
+
+  var states = statesProvider.get();
+
   $stateProvider
-  	.state('root.admin', {
+  	.state(states.admin, {
 		  url: '/admin',
       resolve: [ (isAuthenticated)=> { return isAuthenticated(); } ],
       views: {
@@ -12,7 +15,7 @@ function adminRoutes( $stateProvider: ng.ui.IStateProvider ) {
           controllerAs: 'adminCtrl',
         }
       }
-  	})
+  	});
 }
 
 export { adminRoutes as default };

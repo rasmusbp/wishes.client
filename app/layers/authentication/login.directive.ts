@@ -13,7 +13,7 @@ class Controller {
     this.MyUser.login(this.credentials,
       // success
       ()=> {
-        this.$state.go('root.admin');
+        this.goToState.admin();
       },
       // fail
       ()=> {
@@ -25,7 +25,7 @@ class Controller {
   constructor(
     private $scope : ng.IScope,
     private Flag: IFlagConstructor,
-    private $state: ng.ui.IStateService,
+    private goToState,
     private $element,
     private $mdToast : ng.material.IToastService,
     private MyUser /*: loopback.IMyUser <- interface in the making */
