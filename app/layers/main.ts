@@ -10,6 +10,7 @@ import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
 import AdminCtrl from "./admin/admin.ctrl";
 import AuthorCtrl from "./author/author.ctrl";
+import authorForm from "./author/author-form.directive";
 import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
 import wishItem from "./components/wish-items/wish.item.directive";
@@ -41,6 +42,7 @@ appModule
   .controller('adminCtrl', AdminCtrl)
   .controller('authorCtrl', AuthorCtrl)
   .directive('wLoginForm', loginForm)
+  .directive('wAuthorForm', authorForm)
 
   // layer: wishes
   .config(wishesRoutes)
@@ -56,6 +58,6 @@ appModule
   .factory('defer', defer)
   .provider('states', stateHelpers.states)
   .factory('goToState', stateHelpers.goToState)
-  .value('wishSchema', wishSchema
+  .value('wishSchema', wishSchema)
 
 ;

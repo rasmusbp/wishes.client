@@ -1,6 +1,6 @@
 var wishSchema = {
   'ownerId': '',
-  'title': 'test',
+  'title': '',
   'description': '',
   "imageUrl": '',
   'shopUrl': '',

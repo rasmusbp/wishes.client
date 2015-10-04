@@ -1,0 +1,12 @@
+<form class="form-horizontal" name="authorForm" ng-submit="vm.submit()">
+  <input type="text" class="form-control margin-bottom-10" ng-model="vm.wish.title" placeholder="Ønske" required>
+  <input type="text" class="form-control margin-bottom-10"  ng-model="vm.wish.description" placeholder="Beskrivelse" required>
+  <input type="text" class="form-control margin-bottom-10"  ng-model="vm.wish.price" placeholder="Pris" required>
+  <input type="text" class="form-control margin-bottom-10"  ng-model="vm.wish.ownerId" placeholder="ownerId" required>
+  <button type="submit" class="btn btn-primary">{{vm.isEditMode ? 'Opdater' : 'Tilføj'}}</button>
+</form>
+<ul>
+  <li ng-repeat="owner in vm.owners">
+    {{owner.name}} | {{owner.id}}
+  </li>
+</ul>

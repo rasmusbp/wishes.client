@@ -22,6 +22,7 @@ class wishItemAdminCtrl {
       });
     }
     constructor(
+      private goToState,
       private $scope : ng.IScope,
       private $timeout : ng.ITimeoutService,
       private defer : IDefer,

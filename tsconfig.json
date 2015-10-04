@@ -20,6 +20,7 @@
         "./app/layers/authentication/isAuthenticated.ts",
         "./app/layers/authentication/login.ctrl.ts",
         "./app/layers/authentication/login.directive.ts",
+        "./app/layers/author/author-form.directive.ts",
         "./app/layers/author/author.ctrl.ts",
         "./app/layers/author/author.routes.ts",
         "./app/layers/components/spinners/spinner.directive.ts",

@@ -27,7 +27,6 @@ class Controller {
     private Flag: IFlagConstructor,
     private goToState,
     private $element,
-    private $mdToast : ng.material.IToastService,
     private MyUser /*: loopback.IMyUser <- interface in the making */
   ) {
     this.busyFlag = new Flag('isBusy', this);
