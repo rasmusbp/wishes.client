@@ -5,6 +5,7 @@ var _statesMap = {
     logout: 'root.logout',
     admin: 'root.admin',
     edit: 'root.edit',
+    create: 'root.create',
 };
 
 export var states = function states() {

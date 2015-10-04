@@ -3,12 +3,13 @@ import rootRoutes from "./root.routes";
 import wishesRoutes from "./wishes/wishes.routes";
 import * as authSetup from "./authentication/auth.routes";
 import adminRoutes from "./admin/admin.routes";
+import authorRoutes from "./author/author.routes";
 import Logintrl from "./authentication/login.ctrl";
 import isAuthenticated from "./authentication/isAuthenticated";
 import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
 import AdminCtrl from "./admin/admin.ctrl";
-import EditCtrl from "./edit/edit.ctrl";
+import AuthorCtrl from "./author/author.ctrl";
 import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
 import wishItem from "./components/wish-items/wish.item.directive";
@@ -16,6 +17,7 @@ import wishItemAdminListCtrl from "./components/wish-items/wish.item.admin-list.
 import flagFactory from "./utilities/Flag";
 import defer from "./utilities/defer";
 import * as stateHelpers from "./utilities/statesHelpers";
+import wishSchema from "./utilities/wishSchema";
 
 appModule
   // global: init setup
@@ -33,10 +35,11 @@ appModule
   .controller('loginCtrl', Logintrl)
   .factory('isAuthenticated', isAuthenticated)
 
-  // layer: admin + edit
+  // layer: admin + edit + create
   .config(adminRoutes)
+  .config(authorRoutes)
   .controller('adminCtrl', AdminCtrl)
-  .controller('editCtrl', EditCtrl)
+  .controller('authorCtrl', AuthorCtrl)
   .directive('wLoginForm', loginForm)
 
   // layer: wishes
@@ -53,5 +56,6 @@ appModule
   .factory('defer', defer)
   .provider('states', stateHelpers.states)
   .factory('goToState', stateHelpers.goToState)
+  .value('wishSchema', wishSchema
 
 ;

@@ -20,15 +20,16 @@
         "./app/layers/authentication/isAuthenticated.ts",
         "./app/layers/authentication/login.ctrl.ts",
         "./app/layers/authentication/login.directive.ts",
+        "./app/layers/author/author.ctrl.ts",
+        "./app/layers/author/author.routes.ts",
         "./app/layers/components/spinners/spinner.directive.ts",
         "./app/layers/components/wish-items/wish.item.admin-list.ctrl.ts",
         "./app/layers/components/wish-items/wish.item.directive.ts",
-        "./app/layers/edit/edit.ctrl.ts",
-        "./app/layers/edit/edit.routes.ts",
         "./app/layers/layout/layout.ctrl.ts",
         "./app/layers/utilities/Flag.ts",
         "./app/layers/utilities/defer.ts",
         "./app/layers/utilities/statesHelpers.ts",
+        "./app/layers/utilities/wishSchema.ts",
         "./app/layers/wishes/wishes.ctrl.ts",
         "./app/layers/wishes/wishes.routes.ts"
     ]
