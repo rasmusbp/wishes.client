@@ -14,7 +14,6 @@ class AuthorCtrl {
         } else {
             this.wish = new Wish( wishSchema );
         }
-        console.log(this.wish);
     }
 
 }

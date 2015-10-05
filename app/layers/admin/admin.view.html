@@ -13,9 +13,13 @@
      <li
        class="w-list-clean--item"
        ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length === 0">
-       <div class="w-media-box">
-         <img src="images/icons/empty.svg" class="w-media-box--figure w-avatar" />
-         <p class="w-media-box--body text-muted">Der er ingen ønsker tilføjet for {{owner.name}}.</p>
+       <div class="media">
+         <div class="media-left media-middle">
+           <img src="images/icons/empty.svg" class="w-avatar" />
+         </div>
+         <div class="media-body media-middle">
+           <p class="text-muted no-margin">Der er ingen ønsker tilføjet for {{owner.name}}.</p>
+         </div>
        </div>
      </li>
      <!-- /empty state -->
@@ -26,10 +30,9 @@
        ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length > 0"
        ng-repeat="wish in adminCtrl.wishes | filter:{ownerId: owner.id}"
      >
-       <w-wish-item
-          type="admin-list"
+       <w-wish-item-admin-list
           wish="wish"
-       ></w-wish-item>
+       ></w-wish-item-admin-list>
      </li>
      <!-- /wishes -->
 

@@ -1,0 +1,30 @@
+<div class="btn-group" role="group">
+
+  <!-- toggle active -->
+  <button type="button" class="btn btn-default">
+    <!-- NOTE:
+        ng-change="vm.controller.updateWish" is without ´()´
+        due to a bug in the <switch> directive
+      -->
+    <switch
+      class="small green"
+      name="isActive"
+      ng-model="vm.controller.wish.isActive"
+      ng-change="vm.controller.updateWish"
+    ></switch>
+  </button>
+  <!-- /toggle active -->
+
+  <!-- edit -->
+  <button type="button" class="btn btn-default" ng-click="vm.goToState.edit({ id: vm.controller.wish.id })">
+    <img src="images/icons/edit.svg" />
+  </button>
+  <!-- /edit -->
+
+  <!-- delete -->
+  <button type="button" class="btn btn-default" ng-click="vm.controller.deleteWish()">
+    <img src="images/icons/delete.svg" />
+  </button>
+  <!-- /delete -->
+
+</div>

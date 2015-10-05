@@ -4,9 +4,11 @@ $small-size: 20px;
   width: $default-size;
   height: $default-size;
   border-radius: 50%;
+  margin: 0 10px;
 
-  &.w-avatar__small {
+  &.w-avatar--small {
     width: $small-size;
     height: $small-size;
+    margin: 0 5px;
   }
 }

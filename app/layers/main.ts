@@ -10,14 +10,19 @@ import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
 import AdminCtrl from "./admin/admin.ctrl";
 import AuthorCtrl from "./author/author.ctrl";
-import authorForm from "./author/author-form.directive";
 import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
-import wishItem from "./components/wish-items/wish.item.directive";
-import wishItemAdminListCtrl from "./components/wish-items/wish.item.admin-list.ctrl";
+import inputList from "./components/input-list/input-list.directive";
+
+import wishItemAdminList from "./components/wish-items/wish.item.admin-list.directive";
+import wishItemAuthor from "./components/wish-items/wish.item.author.directive";
+import wishQuickActions from "./components/wish-items/wish-quick-actions.directive";
+
 import flagFactory from "./utilities/Flag";
 import defer from "./utilities/defer";
-import * as stateHelpers from "./utilities/statesHelpers";
+import notifyFactory from "./utilities/notify";
+import * as stateHelpers from "./utilities/states-helpers";
+import viewport from "./utilities/viewport";
 import wishSchema from "./utilities/wishSchema";
 
 appModule
@@ -34,6 +39,7 @@ appModule
   .config(authSetup.authRoutes)
   .run(authSetup.denyUnauthorizedAccess)
   .controller('loginCtrl', Logintrl)
+  .directive('wLoginForm', loginForm)
   .factory('isAuthenticated', isAuthenticated)
 
   // layer: admin + edit + create
@@ -41,8 +47,6 @@ appModule
   .config(authorRoutes)
   .controller('adminCtrl', AdminCtrl)
   .controller('authorCtrl', AuthorCtrl)
-  .directive('wLoginForm', loginForm)
-  .directive('wAuthorForm', authorForm)
 
   // layer: wishes
   .config(wishesRoutes)
@@ -50,14 +54,18 @@ appModule
 
   // shared: components
   .directive('wSpinnerWrapper', spinnerWrapper)
-  .directive('wWishItem', wishItem)
-  .controller('wishItemAdminListCtrl', wishItemAdminListCtrl)
+  .directive('wInputList', inputList)
+  .directive('wWishItemAdminList', wishItemAdminList)
+  .directive('wWishItemAuthor', wishItemAuthor)
+  .directive('wWishQuickActions', wishQuickActions)
 
   // shared: utilities
   .factory('Flag', flagFactory)
   .factory('defer', defer)
+  .factory('notify', notifyFactory)
   .provider('states', stateHelpers.states)
   .factory('goToState', stateHelpers.goToState)
+  .factory('viewport', viewport)
   .value('wishSchema', wishSchema)
 
 ;

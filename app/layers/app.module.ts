@@ -5,6 +5,7 @@ var appModule = angular
   .module('Wishes', [
     'ui.router',
     'resources',
+    'matchMedia',
     'uiSwitch'
   ]);
 

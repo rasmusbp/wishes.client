@@ -5,11 +5,13 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "../layers/components/spinners/spinner.directive.style.scss";
+@import "../layers/components/input-list.directive.style.scss";
 @import "../layers/components/media-box.style.scss";
 @import "../layers/components/list.style.scss";
 @import "../layers/components/avatar.style.scss";
 @import "../layers/components/alertify.style.scss";
-@import "../layers/components/admin-tools.style.scss";
+@import "../layers/components/global-tools.style.scss";
+@import "../layers/components/divider.style.scss";
 @import "../layers/components/surgical.style.scss";
 
 .browserupgrade {
@@ -113,10 +115,11 @@ body {
 // Third-party CSS tweaks
 .btn {
   .switch {
-    margin-bottom: -6px;
+    margin-bottom: -3px;
   }
 }
 .switch {
+  background: #ccc;
   &:focus {
     outline: none;
   }

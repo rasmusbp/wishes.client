@@ -1,0 +1,22 @@
+<div class="media no-margin">
+  <div class="media-body media-middle">
+    <input
+      ng-model="currentValue"
+      ng-keydown="handleEnter($event)"
+      for="{{ labelId }}"
+      type="text"
+      class="form-control"
+      placeholder="{{ initPlaceholder }}">
+  </div>
+  <div class="media-right media-middle">
+    <div
+      style="cursor: pointer;"
+      ng-click="addCurrentValueAndClearInput()"
+      class="glyphicon glyphicon-plus btn btn-link"></div>
+  </div>
+</div>
+<div class="w-input-list--items">
+  <a
+    ng-click="removeValue( value )"
+    class="btn btn-link btn-xs text-muted" ng-repeat="value in values">{{value}} <span class="glyphicon glyphicon-remove"></span></a>
+</div>

@@ -1,0 +1,99 @@
+<form name="authorForm" ng-submit="vm.submit()">
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <!-- wish.title -->
+          <div class="form-group">
+            <label for="title">Titel</label>
+            <input id="title" type="text" class="form-control" ng-model="vm.wish.title" placeholder="Ønske" required>
+          </div>
+          <!-- /wish.title -->
+        </div>
+    </div>
+
+    <!-- wish.description -->
+    <div class="form-group">
+      <label for="description">Beskrivelse</label>
+      <textarea id="description" class="form-control"  ng-model="vm.wish.description" placeholder="Beskrivelse" required></textarea>
+    </div>
+    <!-- /wish.description -->
+
+    <div class="row">
+
+      <div class="col-xs-6 col-sm-3">
+        <!-- wish.price -->
+        <div class="form-group">
+          <label id="price" for="username">Pris niveau</label>
+          <input type="number" pattern="/[0-9]*/"class="form-control"  ng-model="vm.wish.price" placeholder="Pris" required>
+        </div>
+        <!-- /wish.price -->
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <!-- wish.ownerId -->
+        <div class="form-group">
+          <label id="owner" for="username">Ejer</label>
+          <select
+            required
+            id="owner"
+            ng-model="vm.wish.ownerId"
+            class="form-control">
+            <option ng-repeat="owner in vm.owners" value="{{owner.id}}">{{owner.name}}</option>
+          </select>
+        </div>
+        <!-- wish.ownerId -->
+      </div>
+
+      <div class="col-xs-3 col-sm-1">
+        <!-- wish.isActive -->
+        <div class="form-group">
+          <label>Aktiv</label>
+          <div>
+            <switch
+              class="green"
+              name="isActive"
+              ng-model="vm.wish.isActive"
+            ></switch>
+          </div>
+        </div>
+        <!-- /wish.isActive -->
+      </div>
+
+      <div class="col-xs-7 col-sm-5">
+        <!-- wish.buyAt -->
+        <div class="form-group pull-right">
+          <label for="buyAt">Køb hos</label>
+
+          <w-input-list
+            ng-model="vm.wish.buyAt",
+            label-id="buyAt"
+            init-placeholder="Butik"
+          >
+          </w-input-list>
+
+        </div>
+        <!-- /wish.buyAt -->
+      </div>
+
+    </div>
+
+    <div class="w-divider"></div>
+
+    <button
+      ng-if="!vm.isEditMode"
+      ng-click="vm.isUserDone = false"
+      type="submit"
+      class="btn btn-primary pull-right">
+      Tilføj og forsæt
+    </button>
+
+    <button
+      class="btn pull-right"
+      ng-class="vm.isEditMode ? 'btn-primary' : 'btn-link'"
+      ng-click="vm.isUserDone = true"
+    >
+        {{vm.isEditMode ? 'Opdater' : 'Tilføj'}} og afslut
+    </button>
+
+</form>

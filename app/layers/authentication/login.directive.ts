@@ -18,7 +18,7 @@ class Controller {
       // fail
       ()=> {
         this.busyFlag.switchOff();
-        alertify.error('Forkert brugernavn eller password');
+        this.notify('error', 'wrong_credentials');
       });
 
   }
@@ -27,6 +27,7 @@ class Controller {
     private Flag: IFlagConstructor,
     private goToState,
     private $element,
+    private notify,
     private MyUser /*: loopback.IMyUser <- interface in the making */
   ) {
     this.busyFlag = new Flag('isBusy', this);

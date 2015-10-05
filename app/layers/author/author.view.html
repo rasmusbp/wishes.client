@@ -1,6 +1,9 @@
 <h1>{{ authorCtrl.isEditMode ? 'Rediger ønske' : 'Tilføj ønske'}}</h1>
 <div class="panel panel-default">
   <div class="panel-body">
-      <w-author-form wish="authorCtrl.wish" is-edit-mode="authorCtrl.isEditMode"></w-author-form>
+    <w-wish-item-author
+        is-edit-mode="authorCtrl.isEditMode"
+        wish="authorCtrl.wish"
+    ></w-wish-item-author>
   </div>
 </div>

@@ -1,0 +1,30 @@
+<w-spinner-wrapper show-when="vm.isBusy" type="linear">
+
+  <div class="media" ng-style="{'opacity': vm.isDeleted ? 0.3 : 1}">
+    <div class="media-left media-middle">
+      <img ng-src="{{ vm.wish.imageUrl }}" class="w-avatar" />
+    </div>
+    <div class="media-body media-middle">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-8">
+          <!-- summary -->
+          <h5 class="margin-bottom-5">{{ vm.wish.title }}</h5>
+          <p class="no-margin text-muted">{{ vm.wish.description }}</p>
+          <!-- /summary -->
+        </div>
+
+        <div ng-if="vm.viewport.is.mediumOrLarge() && !vm.isDeleted" class="col-sm-4">
+          <w-wish-quick-actions class="pull-right" controller="vm"></w-wish-quick-actions>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div ng-if="vm.viewport.is.xsmallOrSmall() && !vm.isDeleted">
+    <div class="w-divider"></div>
+    <w-wish-quick-actions controller="vm"></w-wish-quick-actions>
+  </div>
+
+</w-spinner-wrapper>
