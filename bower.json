@@ -9,7 +9,8 @@
     "ui-router": "~0.2.15",
     "angular-ui-switch": "~0.1.1",
     "alertify.js": "~0.3.11",
-    "angular-media-queries": "~0.4.1"
+    "angular-media-queries": "~0.4.1",
+    "angular-file-upload": "~2.1.4"
   },
   "overrides": {
     "bootstrap-sass": {

@@ -9,10 +9,10 @@
       "commit": "ebc69904eb78f94030d5d517b42db20867f679c0"
     },
     "angularjs/angular.d.ts": {
-      "commit": "98d3168c2c570352a3a7393788e2ec9fbb08ade6"
+      "commit": "55f5aec4260b7679892cbd586d11cc8fd811615f"
     },
     "jquery/jquery.d.ts": {
-      "commit": "98d3168c2c570352a3a7393788e2ec9fbb08ade6"
+      "commit": "55f5aec4260b7679892cbd586d11cc8fd811615f"
     },
     "lodash/lodash.d.ts": {
       "commit": "ebc69904eb78f94030d5d517b42db20867f679c0"
@@ -22,6 +22,12 @@
     },
     "angular-material/angular-material.d.ts": {
       "commit": "98d3168c2c570352a3a7393788e2ec9fbb08ade6"
+    },
+    "angular-file-upload/angular-file-upload.d.ts": {
+      "commit": "55f5aec4260b7679892cbd586d11cc8fd811615f"
+    },
+    "ng-file-upload/ng-file-upload.d.ts": {
+      "commit": "55f5aec4260b7679892cbd586d11cc8fd811615f"
     }
   }
 }

@@ -1,0 +1,46 @@
+<div nv-file-drop uploader="ctrl.uploader">
+
+  <!-- upload methods -->
+  <div class="w-image-uploader__methods" ng-if="!outputUrl">
+
+    <div
+      ng-if="ctrl.isUploading"
+      class="w-image-uploader__progress progress">
+      <div class="progress-bar" style="width: {{ ctrl.uploadProgress }}%">
+      </div>
+    </div>
+    <!-- drop-zone -->
+    <div
+      nv-file-over
+      uploader="ctrl.uploader"
+      ng-click="ctrl.triggerFilePicker($event)"
+      over-class="w-image-uploader__drop-zone--over"
+      ng-class="{'is-uploading': ctrl.isUploading}"
+      class="w-image-uploader__drop-zone">
+    </div>
+    <input
+      style="display: none;"
+      class="w-image-uploader__input"
+      type="file"
+      nv-file-select
+      uploader="ctrl.uploader"/>
+    <!-- /drop-zone -->
+
+
+  </div>
+  <!-- /upload methods -->
+
+  <!-- preview -->
+  <div
+    ng-if="outputUrl"
+    class="well w-image-uploader__preview">
+    <img ng-src="{{ outputUrl }}"/>
+    <div class="w-image-uploader__remove">
+      <button ng-click="deleteFileHandler($event)" class="btn btn-link">
+        <img src="images/icons/delete.svg"/>
+      </button>
+    </div>
+  </div>
+  <!-- /preview -->
+
+</div>

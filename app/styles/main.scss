@@ -5,7 +5,8 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "../layers/components/spinners/spinner.directive.style.scss";
-@import "../layers/components/input-list.directive.style.scss";
+@import "../layers/components/image-uploader/image-uploader.directive.style.scss";
+@import "../layers/components/input-list/input-list.directive.style.scss";
 @import "../layers/components/media-box.style.scss";
 @import "../layers/components/list.style.scss";
 @import "../layers/components/avatar.style.scss";

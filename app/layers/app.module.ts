@@ -6,6 +6,7 @@ var appModule = angular
     'ui.router',
     'resources',
     'matchMedia',
+    'angularFileUpload',
     'uiSwitch'
   ]);
 

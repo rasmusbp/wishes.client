@@ -1,6 +1,7 @@
 import appModule from "./app.module";
 import rootRoutes from "./root.routes";
 import wishesRoutes from "./wishes/wishes.routes";
+import authErrorHandler from "./authentication/authErrorHandler";
 import * as authSetup from "./authentication/auth.routes";
 import adminRoutes from "./admin/admin.routes";
 import authorRoutes from "./author/author.routes";
@@ -13,6 +14,7 @@ import AuthorCtrl from "./author/author.ctrl";
 import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
 import inputList from "./components/input-list/input-list.directive";
+import imageUploader from "./components/image-uploader/image-uploader.directive";
 
 import wishItemAdminList from "./components/wish-items/wish.item.admin-list.directive";
 import wishItemAuthor from "./components/wish-items/wish.item.author.directive";
@@ -36,6 +38,7 @@ appModule
   .controller('layoutCtrl', LayoutCtrl)
 
   // layer: authentication
+  .config(authErrorHandler)
   .config(authSetup.authRoutes)
   .run(authSetup.denyUnauthorizedAccess)
   .controller('loginCtrl', Logintrl)
@@ -55,6 +58,7 @@ appModule
   // shared: components
   .directive('wSpinnerWrapper', spinnerWrapper)
   .directive('wInputList', inputList)
+  .directive('wImageUploader', imageUploader)
   .directive('wWishItemAdminList', wishItemAdminList)
   .directive('wWishItemAuthor', wishItemAuthor)
   .directive('wWishQuickActions', wishQuickActions)

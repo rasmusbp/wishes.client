@@ -12,8 +12,12 @@ interface IFlag {
     toggle() : void;
 }
 
+interface IDeferedMethod {
+  cancel: Function
+}
+
 interface IDefer {
-  (method: Function, timer?: number ) : { cancel: Function }
+  (method: Function, timer?: number ) : IDeferedMethod
 }
 
 declare module app {

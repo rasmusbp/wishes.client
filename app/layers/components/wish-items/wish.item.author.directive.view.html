@@ -1,5 +1,16 @@
 <form name="authorForm" ng-submit="vm.submit()">
 
+    <!-- wish.imageUrl -->
+    <div class="form-group">
+      <label>Billede</label>
+      <w-image-uploader
+        on-delete="vm.onImageRemove()"
+        on-upload-success="vm.onImageUpload()"
+        ng-model="vm.wish.imageUrl">
+      </w-image-uploader>
+    </div>
+  </div>
+    <!-- /wish.imageUrl -->
 
     <div class="row">
         <div class="col-xs-12 col-sm-6">
@@ -25,7 +36,12 @@
         <!-- wish.price -->
         <div class="form-group">
           <label id="price" for="username">Pris niveau</label>
-          <input type="number" pattern="/[0-9]*/"class="form-control"  ng-model="vm.wish.price" placeholder="Pris" required>
+          <input
+              type="text"
+              pattern="[0-9]*"
+              class="form-control"
+              ng-model="vm.wish.price"
+              placeholder="Pris"/>
         </div>
         <!-- /wish.price -->
       </div>
