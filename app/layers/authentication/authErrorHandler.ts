@@ -10,13 +10,12 @@ function authErrorHandler($httpProvider: ng.IHttpProvider) {
                     LoopBackAuth.clearUser();
                     LoopBackAuth.clearStorage();
                     $injector.get('goToState').login();
-                }
-                if (rejection.status == 401) {
                     notify('error', 'logged_out');
                 }
                 if (rejection.status == 500) {
                     notify('error', 'server_error');
                 }
+                
                 return $q.reject(rejection);
             }
         };
