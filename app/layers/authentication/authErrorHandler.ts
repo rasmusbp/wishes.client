@@ -6,7 +6,7 @@ function authErrorHandler($httpProvider: ng.IHttpProvider) {
         return {
             responseError: function(rejection) {
 
-                if (rejection.status == 401 || rejection.status == 500) {
+                if (rejection.status == 401) {
                     LoopBackAuth.clearUser();
                     LoopBackAuth.clearStorage();
                     $injector.get('goToState').login();

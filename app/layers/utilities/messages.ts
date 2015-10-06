@@ -5,7 +5,7 @@ var messages = {
   'wish_deleted': ( title ) => `Ønske slettet: ${title}.`,
   'wish_updated': ( title ) => `Ønske opdateret: ${title}.`,
   'logged_out': () => 'Du er blevet logget ud. Log venligst på igen.',
-  'server_error': () => 'Noget gik galt. Log venligst på igen.'
+  'server_error': () => 'Noget gik galt. Prøv igen senere.'
 }
 
 export { messages as default };
