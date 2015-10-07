@@ -96,7 +96,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('webpack:dev', ( callback ) => {
 
     var config = Object.create(webpackConfig);
-    config.devtool = 'eval';
+    //config.devtool = 'eval';
     config.debug = true;
 
     webpack(config, function(err, stats) {
@@ -117,6 +117,7 @@ gulp.task('serve', ['webpack:dev', 'styles', 'fonts'], () => {
     notify: false,
     server: {
       baseDir: ['.tmp', 'app'],
+      open: false,
       middleware: [proxy(proxyOptions)],
       routes: {
         '/bower_components': 'bower_components'

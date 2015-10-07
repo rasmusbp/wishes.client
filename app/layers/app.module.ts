@@ -7,6 +7,7 @@ var appModule = angular
     'resources',
     'matchMedia',
     'angularFileUpload',
+    'iso.directives',
     'uiSwitch'
   ]);
 

@@ -1,1 +1,6 @@
-hello!
+<ul isotope-container="isotope-container">
+    <li ng-repeat="wish in wishesCtrl.wishes"
+        isotope-item >
+        {{wish.title}}
+    </li>
+</ul>

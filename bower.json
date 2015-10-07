@@ -11,7 +11,8 @@
     "alertify.js": "~0.3.11",
     "angular-media-queries": "~0.4.1",
     "angular-file-upload": "~2.1.4",
-    "angular-isotope": "~0.1.14"
+    "angular-isotope": "~0.1.14",
+    "jquery": "~2.1.4"
   },
   "overrides": {
     "bootstrap-sass": {
