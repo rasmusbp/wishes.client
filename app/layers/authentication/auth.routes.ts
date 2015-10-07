@@ -21,7 +21,7 @@ export var authRoutes = function authRoutes( statesProvider, $stateProvider: ng.
         ) => {
           MyUser.logout(() => {
             goToState.wishes();
-          });
+          }, () => goToState.login() );
         }
   	});
 }

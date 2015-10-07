@@ -17,6 +17,9 @@ class WishItemAuthorCtrl extends WishItemCtrl {
       if ( !this.isEditMode ) return;
       this.updateWish();
     }
+    onImageUploadError() {
+      this.notify('error', 'image_upload_error');
+    }
     submit() {
         this.updateWish()
             .then(() => {

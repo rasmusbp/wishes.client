@@ -21,6 +21,16 @@
           </div>
           <!-- /wish.title -->
         </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <!-- wish.shopUrl -->
+          <div class="form-group">
+            <label for="shopUrl">Link</label>
+            <input id="shopUrl" type="text" class="form-control" ng-model="vm.wish.shopUrl" placeholder="http://www.eksempel.dk">
+          </div>
+          <!-- /wish.shopUrl -->
+        </div>
+
     </div>
 
     <!-- wish.description -->
@@ -55,7 +65,11 @@
             id="owner"
             ng-model="vm.wish.ownerId"
             class="form-control">
-            <option ng-repeat="owner in vm.owners" value="{{owner.id}}">{{owner.name}}</option>
+            <option
+              ng-repeat="owner in vm.owners"
+              value="{{owner.id}}">
+              {{owner.name}}
+            </option>
           </select>
         </div>
         <!-- wish.ownerId -->

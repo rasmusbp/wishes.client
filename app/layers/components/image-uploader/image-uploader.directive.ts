@@ -34,12 +34,20 @@ class Controller {
   setUploadProgress( value ) {
     this.uploadProgress = value;
   }
+  resetProgressBar() {
+    if ( this.deferedUploadFlag ) {
+      this.deferedUploadFlag.cancel();
+    }
+    this.uploadingFlag.switchOff();
+    this.setUploadProgress(0);
+  }
   constructor (
     $scope,
     defer,
     Flag : IFlagConstructor,
     private $element : Element[],
     private Container,
+    LoopBackAuth,
     FileUploader
   ) {
 
@@ -51,6 +59,9 @@ class Controller {
         formData: [
           { key: 'value' }
         ],
+        headers: {
+          'authorization': LoopBackAuth.accessTokenId
+        },
         queueLimit: 1,
         removeAfterUpload: true,
         autoUpload: !this.isTouch()
@@ -72,16 +83,18 @@ class Controller {
 
         $scope.commitToNgModel( this.getUrl( fileName ) );
 
-        // reset progress bar
-        this.deferedUploadFlag.cancel();
-        this.uploadingFlag.switchOff();
-        this.setUploadProgress(0);
+        this.resetProgressBar();
 
         this.onUploadSuccess.apply(null, [item, result, ...args]);
 
     };
 
     uploader.onErrorItem = (...args) => {
+        this.resetProgressBar();
+        this.onUploadError(...args);
+    };
+
+    uploader.onWhenAddingFileFailed = (...args) => {
         this.onUploadError(...args);
     };
 

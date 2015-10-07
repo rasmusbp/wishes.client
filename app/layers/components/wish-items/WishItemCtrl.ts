@@ -3,6 +3,7 @@ class WishItemCtrl {
     wish: any;
     busyFlag: IFlag;
     isEditMode: boolean;
+    notify: any
     updateWish() {
       var deferredLoader = this.defer(this.busyFlag.switchOn);
       return this.wish.$save()
@@ -41,10 +42,11 @@ class WishItemCtrl {
       private $q : ng.IQService,
       private $scope : ng.IScope,
       private defer : IDefer,
-      private notify,
+      notify,
       private Flag: IFlagConstructor
     ) {
 
+      this.notify = notify;
       this.busyFlag = new Flag('isBusy', this);
       this.deletedFlag = new Flag('isDeleted', this);
 

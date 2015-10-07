@@ -10,7 +10,8 @@
     "angular-ui-switch": "~0.1.1",
     "alertify.js": "~0.3.11",
     "angular-media-queries": "~0.4.1",
-    "angular-file-upload": "~2.1.4"
+    "angular-file-upload": "~2.1.4",
+    "angular-isotope": "~0.1.14"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -24,5 +25,8 @@
   "devDependencies": {
     "chai": "~3.3.0",
     "mocha": "~2.3.3"
+  },
+  "resolutions": {
+    "angular": "1.4.7"
   }
 }

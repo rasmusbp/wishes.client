@@ -1,9 +1,11 @@
-<h1>{{ authorCtrl.isEditMode ? 'Rediger ønske' : 'Tilføj ønske'}}</h1>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <w-wish-item-author
-        is-edit-mode="authorCtrl.isEditMode"
-        wish="authorCtrl.wish"
-    ></w-wish-item-author>
+<div class="container">
+  <h1>{{ authorCtrl.isEditMode ? 'Rediger ønske' : 'Tilføj ønske'}}</h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <w-wish-item-author
+          is-edit-mode="authorCtrl.isEditMode"
+          wish="authorCtrl.wish"
+      ></w-wish-item-author>
+    </div>
   </div>
 </div>

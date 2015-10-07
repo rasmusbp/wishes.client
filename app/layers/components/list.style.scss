@@ -5,11 +5,15 @@
   list-style-type: none;
 
   .w-list-clean--item {
-    padding: 15px 0;
+    padding: 15px 15px 15px 0;
     border-top: 1px solid #eee;
 
     &:first-child {
       border-top: none;
+    }
+
+    &:nth-child(odd) {
+      background: #f5f5f5;
     }
 
   }
