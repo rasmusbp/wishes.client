@@ -20,7 +20,7 @@
   <ul class="list-group">
 
     <!-- wish.description -->
-    <li class="list-group-item text-capitalize text-muted wish-list--detail-item">
+    <li class="list-group-item text-capitalize text-muted wish-grid-item--detail">
       {{vm.wish.description}}
     </li>
     <!-- /wish.description -->
@@ -28,7 +28,7 @@
     <!-- wish.price -->
     <li
       ng-if="vm.wish.price"
-      class="list-group-item wish-list--detail-item">
+      class="list-group-item wish-grid-item--detail">
       <div class="media">
         <div class="media-left media-middle">
           <img src="images/icons/price-tag.svg"/>
@@ -45,7 +45,7 @@
     <!-- wish.buyAt -->
     <li
       ng-if="vm.wish.buyAt.length"
-      class="list-group-item wish-list--detail-item">
+      class="list-group-item wish-grid-item--detail">
       <div class="media">
         <div class="media-left media-middle">
           <img src="images/icons/pin.svg"/>
@@ -62,7 +62,7 @@
     <!-- wish.shopUrl -->
     <li
       ng-if="vm.wish.shopUrl"
-      class="list-group-item wish-list--detail-item">
+      class="list-group-item wish-grid-item--detail">
         <a
           class="btn btn-primary btn-block"
           href="{{vm.wish.shopUrl}}" target="_blank">
@@ -72,13 +72,11 @@
     <!-- /wish.shopUrl -->
 
     <!-- author actions -->
-
     <li
       ng-if="vm.isAuthenticated()"
-      class="list-group-item wish-list--detail-item">
+      class="list-group-item wish-grid-item--detail">
       <wish-quick-actions controller="vm"></wish-quick-actions>
     </li>
-
     <!-- /author actions -->
 
   </ul>

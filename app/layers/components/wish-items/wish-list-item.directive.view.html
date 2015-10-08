@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div ng-if="vm.viewport.is.xsmallOrSmall() && !vm.isDeleted">
+  <div ng-if="vm.viewport.is.xsmallOrSmall() && !vm.isDeleted && vm.isAuthenticated()">
     <div class="w-divider"></div>
     <wish-quick-actions controller="vm"></wish-quick-actions>
   </div>

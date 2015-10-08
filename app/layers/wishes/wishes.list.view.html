@@ -1,7 +1,6 @@
-<h1>Admin</h1>
 <!-- wishes -->
 <div
-  ng-repeat="owner in adminCtrl.owners"
+  ng-repeat="owner in wishesCtrl.owners"
   class="panel panel-info">
   <div class="panel-heading">
    <h3 class="panel-title">{{owner.name}}</h3>
@@ -12,7 +11,7 @@
      <!-- empty state -->
      <li
        class="w-list-clean--item"
-       ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length === 0">
+       ng-if="(wishesCtrl.wishes | filter:{ownerId: owner.id}).length === 0">
        <div class="media">
          <div class="media-left media-middle">
            <img src="images/icons/empty.svg" class="w-avatar" />
@@ -27,8 +26,8 @@
      <!-- wishes -->
      <li
        class="w-list-clean--item"
-       ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length > 0"
-       ng-repeat="wish in adminCtrl.wishes | filter:{ownerId: owner.id}"
+       ng-if="(wishesCtrl.wishes | filter:{ownerId: owner.id}).length > 0"
+       ng-repeat="wish in wishesCtrl.wishes | filter:{ownerId: owner.id}"
      >
        <wish-list-item
           wish="wish"

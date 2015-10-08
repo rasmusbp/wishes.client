@@ -6,7 +6,7 @@ function wishesRoutes( $stateProvider: ng.ui.IStateProvider ) {
     .state('root.wishes', {
       url: '/wishes',
       views: {
-        'public': {
+        'wishes': {
           templateUrl: 'layers/wishes/wishes.view.html',
           controller: 'wishesCtrl',
           controllerAs: 'wishesCtrl'

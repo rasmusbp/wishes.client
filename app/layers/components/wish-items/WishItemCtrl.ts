@@ -5,13 +5,13 @@ class WishItemCtrl {
     isEditMode: boolean;
 
     notify: any;
-    private User: any;
+    private MyUser: any;
     private $q: ng.IQService;
     defer :any;
     Flag: IFlagConstructor;
 
     isAuthenticated() {
-      return this.User.isAuthenticated();
+      return this.MyUser.isAuthenticated();
     }
     updateWish() {
       var deferredLoader = this.defer(this.busyFlag.switchOn);
@@ -51,7 +51,7 @@ class WishItemCtrl {
       private $injector
     ) {
 
-      this.User = $injector.get('User');
+      this.MyUser = $injector.get('User');
       this.$q = $injector.get('$q')
       this.defer = $injector.get('defer');
       this.notify = $injector.get('notify');

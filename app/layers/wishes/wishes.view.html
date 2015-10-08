@@ -1,3 +1,38 @@
-<w-grid items="wishesCtrl.wishes">
-  <wish-grid-item wish="item"></wish-grid-item>
-</w-grid>
+<!-- view toggler -->
+<div class="btn-group">
+  <button
+    ng-click="wishesCtrl.setView('list')"
+    ng-class="{
+      'btn-default' : !wishesCtrl.isListView(),
+      'btn-primary' : wishesCtrl.isListView()
+    }"
+    class="btn btn-sm">
+    <span class="glyphicon glyphicon-th-list"></span>
+  </button>
+  <button
+    ng-click="wishesCtrl.setView('grid')"
+    ng-class="{
+      'btn-default' : !wishesCtrl.isGridView(),
+      'btn-primary' : wishesCtrl.isGridView()
+    }"
+    class="btn btn-sm">
+    <span class="glyphicon glyphicon-th"></span>
+  </button>
+
+</div>
+<!-- /view toggler -->
+
+<!-- grid view -->
+<div
+  ng-if="wishesCtrl.isGridView()"
+  ng-include="'layers/wishes/wishes.grid.view.html'">
+
+</div>
+<!-- /grid view -->
+
+<!-- list view -->
+<div
+  ng-if="wishesCtrl.isListView()"
+  ng-include="'layers/wishes/wishes.list.view.html'">
+</div>
+<!-- /list view -->
