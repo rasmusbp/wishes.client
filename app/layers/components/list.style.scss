@@ -12,10 +12,22 @@
       border-top: none;
     }
 
-    &:nth-child(odd) {
-      background: #f5f5f5;
-    }
-
   }
 
+  &.w-list-clean--alternate {
+    .w-list-clean--item {
+      &:nth-child(odd) {
+        background: #f5f5f5;
+      }
+    }
+  }
+}
+.w-list--link-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  > li {
+    margin: 0 0 10px;
+    padding: 0;
+  }
 }

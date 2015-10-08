@@ -1,26 +1,29 @@
-<!-- view toggler -->
-<div class="btn-group">
-  <button
-    ng-click="wishesCtrl.setView('list')"
-    ng-class="{
-      'btn-default' : !wishesCtrl.isListView(),
-      'btn-primary' : wishesCtrl.isListView()
-    }"
-    class="btn btn-sm">
-    <span class="glyphicon glyphicon-th-list"></span>
-  </button>
-  <button
-    ng-click="wishesCtrl.setView('grid')"
-    ng-class="{
-      'btn-default' : !wishesCtrl.isGridView(),
-      'btn-primary' : wishesCtrl.isGridView()
-    }"
-    class="btn btn-sm">
-    <span class="glyphicon glyphicon-th"></span>
-  </button>
+<div class="w-list-tools">
+  
+  <!-- view toggler -->
+  <div class="btn-group">
+    <button
+      ng-click="wishesCtrl.setView('grid')"
+      ng-class="{
+        'btn-default' : !wishesCtrl.isGridView(),
+        'btn-primary' : wishesCtrl.isGridView()
+      }"
+      class="btn btn-sm">
+      <span class="glyphicon glyphicon-th"></span>
+    </button>
+    <button
+      ng-click="wishesCtrl.setView('list')"
+      ng-class="{
+        'btn-default' : !wishesCtrl.isListView(),
+        'btn-primary' : wishesCtrl.isListView()
+      }"
+      class="btn btn-sm">
+      <span class="glyphicon glyphicon-th-list"></span>
+    </button>
+  </div>
+  <!-- /view toggler -->
 
 </div>
-<!-- /view toggler -->
 
 <!-- grid view -->
 <div

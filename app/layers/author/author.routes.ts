@@ -5,7 +5,7 @@ function createEditRoutes( statesProvider, $stateProvider: ng.ui.IStateProvider 
   var states = statesProvider.get();
   var resolve = [ (isAuthenticated)=> { return isAuthenticated(); } ];
   var editView = {
-    'admin': {
+    'author': {
       templateUrl: 'layers/author/author.view.html',
       controller: 'authorCtrl',
       controllerAs: 'authorCtrl',
