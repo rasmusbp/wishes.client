@@ -1,6 +1,3 @@
-<ul isotope-container="isotope-container">
-    <li ng-repeat="wish in wishesCtrl.wishes"
-        isotope-item >
-        {{wish.title}}
-    </li>
-</ul>
+<w-grid items="wishesCtrl.wishes">
+  <wish-grid-item wish="item"></wish-grid-item>
+</w-grid>

@@ -1,9 +1,13 @@
 class WishesCtrl {
   wishes: any;
+  owners: any;
+
   constructor(
-    Wish /*: loopback.IWish <- interface in the making */
+      Owner, /*: loopback.IOwner <- interface in the making */
+      Wish /*: loopback.IWish <- interface in the making */
   ) {
-    this.wishes = Wish.find();
+      this.owners = Owner.find();
+      this.wishes = Wish.find();
   }
 
 }

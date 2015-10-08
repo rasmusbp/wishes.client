@@ -17,9 +17,11 @@ import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
 import inputList from "./components/input-list/input-list.directive";
 import imageUploader from "./components/image-uploader/image-uploader.directive";
+import grid from "./components/grid/grid.directive";
 
-import wishItemAdminList from "./components/wish-items/wish.item.admin-list.directive";
-import wishItemAuthor from "./components/wish-items/wish.item.author.directive";
+import wishListItem from "./components/wish-items/wish-list-item.directive";
+import wishGridItem from "./components/wish-items/wish-grid-item.directive";
+import wishItemAuthor from "./components/wish-items/wish-item.author.directive";
 import wishQuickActions from "./components/wish-items/wish-quick-actions.directive";
 
 import flagFactory from "./utilities/Flag";
@@ -59,11 +61,13 @@ appModule
 
   // shared: components
   .directive('wSpinnerWrapper', spinnerWrapper)
+  .directive('wGrid', grid)
   .directive('wInputList', inputList)
   .directive('wImageUploader', imageUploader)
-  .directive('wWishItemAdminList', wishItemAdminList)
-  .directive('wWishItemAuthor', wishItemAuthor)
-  .directive('wWishQuickActions', wishQuickActions)
+  .directive('wishGridItem', wishGridItem)
+  .directive('wishListItem', wishListItem)
+  .directive('wishItemAuthor', wishItemAuthor)
+  .directive('wishQuickActions', wishQuickActions)
 
   // shared: utilities
   .factory('Flag', flagFactory)

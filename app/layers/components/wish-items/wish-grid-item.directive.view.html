@@ -1,0 +1,85 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="media">
+      <div class="media-left media-middle">
+        <img class="w-avatar" src="/api/containers/avatars/download/rasmus.jpg" alt="" />
+      </div>
+      <div style="width: auto;" class="media-body media-middle">
+        <h5 class="text-capitalize">{{vm.wish.title}}</h5>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- wish.imageUrl -->
+  <img ng-if="vm.wish.imageUrl" style="width: 100%;" ng-src="{{vm.wish.imageUrl}}"/>
+  <div ng-if="!vm.wish.imageUrl" class="w-no-image"></div>
+  <!-- /wish.imageUrl -->
+
+  <ul class="list-group">
+
+    <!-- wish.description -->
+    <li class="list-group-item text-capitalize text-muted wish-list--detail-item">
+      {{vm.wish.description}}
+    </li>
+    <!-- /wish.description -->
+
+    <!-- wish.price -->
+    <li
+      ng-if="vm.wish.price"
+      class="list-group-item wish-list--detail-item">
+      <div class="media">
+        <div class="media-left media-middle">
+          <img src="images/icons/price-tag.svg"/>
+        </div>
+        <div class="media-body media-middle">
+          <h4 class="pull-right">
+            <span class="label label-default">{{vm.wish.price}} kr.</span>
+          </h4>
+        </div>
+      </div>
+    </li>
+    <!-- /wish.price -->
+
+    <!-- wish.buyAt -->
+    <li
+      ng-if="vm.wish.buyAt.length"
+      class="list-group-item wish-list--detail-item">
+      <div class="media">
+        <div class="media-left media-middle">
+          <img src="images/icons/pin.svg"/>
+        </div>
+        <div class="media-body media-middle">
+          <span class="pull-right text-muted text-capitalize">
+            {{vm.wish.buyAt.join(', ')}}
+          </p>
+        </div>
+      </div>
+    </li>
+    <!-- /wish.buyAt -->
+
+    <!-- wish.shopUrl -->
+    <li
+      ng-if="vm.wish.shopUrl"
+      class="list-group-item wish-list--detail-item">
+        <a
+          class="btn btn-primary btn-block"
+          href="{{vm.wish.shopUrl}}" target="_blank">
+          Læs mere
+        </a>
+    </li>
+    <!-- /wish.shopUrl -->
+
+    <!-- author actions -->
+
+    <li
+      ng-if="vm.isAuthenticated()"
+      class="list-group-item wish-list--detail-item">
+      <wish-quick-actions controller="vm"></wish-quick-actions>
+    </li>
+
+    <!-- /author actions -->
+
+  </ul>
+</div>

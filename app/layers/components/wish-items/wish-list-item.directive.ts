@@ -2,19 +2,15 @@
 
 import WishItemCtrl from './WishItemCtrl';
 
-class wishItemAdminListCtrl extends WishItemCtrl {
+class WishListItemListCtrl extends WishItemCtrl {
   constructor(
     // super's dependencies
-    $q: ng.IQService,
-    $scope : ng.IScope,
-    defer : IDefer,
-    notify,
-    Flag: IFlagConstructor,
+    $injector,
 
     // local dependencies
     private viewport
   ) {
-      super($q, $scope, defer, notify, Flag);
+      super($injector);
       this.isEditMode = true;
   }
 }
@@ -25,9 +21,8 @@ function wishItemAdminList() {
     scope: {
       wish: '='
     },
-    transclude: true,
-    templateUrl: 'layers/components/wish-items/wish.item.admin-list.directive.view.html',
-    controller: wishItemAdminListCtrl,
+    templateUrl: 'layers/components/wish-items/wish-list-item.directive.view.html',
+    controller: WishListItemListCtrl,
     controllerAs: 'vm',
     bindToController: true
   }

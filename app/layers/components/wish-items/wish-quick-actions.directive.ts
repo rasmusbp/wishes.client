@@ -12,7 +12,6 @@ function wishQuickActions() {
     scope: {
       controller: '='
     },
-    transclude: true,
     templateUrl: 'layers/components/wish-items/wish-quick-actions.directive.view.html',
     controller: Controller,
     controllerAs: 'vm',

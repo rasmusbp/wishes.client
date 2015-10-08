@@ -30,9 +30,9 @@
        ng-if="(adminCtrl.wishes | filter:{ownerId: owner.id}).length > 0"
        ng-repeat="wish in adminCtrl.wishes | filter:{ownerId: owner.id}"
      >
-       <w-wish-item-admin-list
+       <wish-list-item
           wish="wish"
-       ></w-wish-item-admin-list>
+       ></wish-list-item>
      </li>
      <!-- /wishes -->
 

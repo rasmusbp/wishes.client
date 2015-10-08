@@ -6,6 +6,7 @@ $icon-font-path: '../fonts/';
 
 @import "../layers/components/spinners/spinner.directive.style.scss";
 @import "../layers/components/image-uploader/image-uploader.directive.style.scss";
+@import "../layers/components/grid/grid.directive.style.scss";
 @import "../layers/components/input-list/input-list.directive.style.scss";
 @import "../layers/components/media-box.style.scss";
 @import "../layers/components/list.style.scss";
@@ -13,6 +14,7 @@ $icon-font-path: '../fonts/';
 @import "../layers/components/alertify.style.scss";
 @import "../layers/components/global-tools.style.scss";
 @import "../layers/components/divider.style.scss";
+@import "../layers/components/no-image.style.scss";
 @import "../layers/components/surgical.style.scss";
 
 .browserupgrade {

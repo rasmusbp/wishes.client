@@ -8,7 +8,6 @@ function inputList() {
             initPlaceholder: '@',
             labelId: '@'
         },
-        transclude: true,
         templateUrl: 'layers/components/input-list/input-list.directive.view.html',
         link: function link(scope, element, attrs, ngModelCtrl) {
 

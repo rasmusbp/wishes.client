@@ -6,6 +6,7 @@
       <w-image-uploader
         on-delete="vm.onImageRemove()"
         on-upload-success="vm.onImageUpload()"
+        on-upload-error="vm.onImageUploadError()"
         ng-model="vm.wish.imageUrl">
       </w-image-uploader>
     </div>

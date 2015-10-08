@@ -131,7 +131,6 @@ function imageUploader() {
       onUploadError: '&',
       onUploadSuccess: '&'
     },
-    transclude: true,
     templateUrl: 'layers/components/image-uploader/image-uploader.directive.view.html',
     controller: Controller,
     controllerAs: 'ctrl',

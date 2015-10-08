@@ -18,6 +18,7 @@ class WishItemAuthorCtrl extends WishItemCtrl {
       this.updateWish();
     }
     onImageUploadError() {
+      console.log('lol');
       this.notify('error', 'image_upload_error');
     }
     submit() {
@@ -32,11 +33,7 @@ class WishItemAuthorCtrl extends WishItemCtrl {
     }
     constructor(
         // super's dependencies
-        $q: ng.IQService,
-        $scope: ng.IScope,
-        defer: IDefer,
-        notify,
-        Flag: IFlagConstructor,
+        $injector,
 
         // local dependencies
         private goToState,
@@ -46,7 +43,7 @@ class WishItemAuthorCtrl extends WishItemCtrl {
         FileUploader
     ) {
 
-        super($q, $scope, defer, notify, Flag);
+        super($injector);
         this.isUserDone = false;
         this.owners = Owner.find();
 
@@ -60,8 +57,7 @@ function wishItemAuthor() {
             wish: '=',
             isEditMode: '='
         },
-        transclude: true,
-        templateUrl: 'layers/components/wish-items/wish.item.author.directive.view.html',
+        templateUrl: 'layers/components/wish-items/wish-item.author.directive.view.html',
         controller: WishItemAuthorCtrl,
         controllerAs: 'vm',
         bindToController: true

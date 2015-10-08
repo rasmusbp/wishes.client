@@ -3,7 +3,16 @@ class WishItemCtrl {
     wish: any;
     busyFlag: IFlag;
     isEditMode: boolean;
-    notify: any
+
+    notify: any;
+    private User: any;
+    private $q: ng.IQService;
+    defer :any;
+    Flag: IFlagConstructor;
+
+    isAuthenticated() {
+      return this.User.isAuthenticated();
+    }
     updateWish() {
       var deferredLoader = this.defer(this.busyFlag.switchOn);
       return this.wish.$save()
@@ -39,16 +48,17 @@ class WishItemCtrl {
 
     }
     constructor(
-      private $q : ng.IQService,
-      private $scope : ng.IScope,
-      private defer : IDefer,
-      notify,
-      private Flag: IFlagConstructor
+      private $injector
     ) {
 
-      this.notify = notify;
-      this.busyFlag = new Flag('isBusy', this);
-      this.deletedFlag = new Flag('isDeleted', this);
+      this.User = $injector.get('User');
+      this.$q = $injector.get('$q')
+      this.defer = $injector.get('defer');
+      this.notify = $injector.get('notify');
+      this.Flag = $injector.get('Flag');
+
+      this.busyFlag = new this.Flag('isBusy', this);
+      this.deletedFlag = new this.Flag('isDeleted', this);
 
     }
 }
