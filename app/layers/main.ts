@@ -5,13 +5,11 @@ import rootRoutes from "./root.routes";
 import wishesRoutes from "./wishes/wishes.routes";
 import authErrorHandler from "./authentication/authErrorHandler";
 import * as authSetup from "./authentication/auth.routes";
-import adminRoutes from "./admin/admin.routes";
 import authorRoutes from "./author/author.routes";
 import Logintrl from "./authentication/login.ctrl";
 import isAuthenticated from "./authentication/isAuthenticated";
 import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
-import AdminCtrl from "./admin/admin.ctrl";
 import AuthorCtrl from "./author/author.ctrl";
 import loginForm from "./authentication/login.directive";
 import spinnerWrapper from "./components/spinners/spinner.directive";
@@ -49,10 +47,8 @@ appModule
   .directive('wLoginForm', loginForm)
   .factory('isAuthenticated', isAuthenticated)
 
-  // layer: admin + edit + create
-  .config(adminRoutes)
+  // layer: edit + create
   .config(authorRoutes)
-  .controller('adminCtrl', AdminCtrl)
   .controller('authorCtrl', AuthorCtrl)
 
   // layer: wishes
