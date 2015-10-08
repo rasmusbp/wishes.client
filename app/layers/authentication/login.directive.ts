@@ -13,7 +13,7 @@ class Controller {
     this.MyUser.login(this.credentials,
       // success
       ()=> {
-        this.goToState.admin();
+        this.goToState.wishes();
       },
       // fail
       ()=> {

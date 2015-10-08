@@ -3,7 +3,6 @@ var _statesMap = {
     wishes: 'root.wishes',
     login: 'root.login',
     logout: 'root.logout',
-    admin: 'root.admin',
     edit: 'root.edit',
     create: 'root.create',
 };
