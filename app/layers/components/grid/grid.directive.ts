@@ -8,11 +8,18 @@ class Controller {
     }
 }
 
-function grid($compile, viewport, $q) {
+function grid(
+    $compile,
+    onImagesLoaded,
+    $timeout) {
     return {
         restrict: 'E',
         scope: {
-            items: '='
+            items: '=',
+            context: '=',
+            filterBy: '=?',
+            sortBy: '=?',
+            sortByOptions: '=?'
         },
         transclude: true,
         templateUrl: 'layers/components/grid/grid.directive.view.html',
@@ -21,66 +28,75 @@ function grid($compile, viewport, $q) {
         bindToController: true,
         link: function(scope, element, attrs, controller, transclude) {
 
+            var filter = scope.gridCtrl.filter ? `| ${scope.gridCtrl.filter}` : ``;
+            var repeater = `item in gridCtrl.localItems = (gridCtrl.items)`
+            var itemTemplate = `<div class="w-grid--item" ng-repeat="${repeater}"></div>`;
+
             // programmaticaly transclude content so we can inject the scope
             transclude(scope, function(clone, scope) {
 
-                var li = angular.element(
-                    `<li class="w-grid--item" ng-repeat="item in gridCtrl.items"></li>`
-                );
+                var item = angular.element( itemTemplate );
 
-                li.append(clone);
-                var liCompiled = $compile(li.clone())(scope);
+                item.append(clone);
+                var itemCompiled = $compile(item.clone())(scope);
 
-                element.find('.w-grid-transclude').append(liCompiled);
+                element.append(itemCompiled);
 
             });
 
-            scope.$watch('items.length', function() {
+            var dispose = scope.$watch('gridCtrl.localItems.length', (length) => {
+              if ( !length ) return;
+              dispose();
+              renderGrid().then((isotope) => {
 
-                var images = element[0].querySelectorAll('img');
+                scope.$watch('gridCtrl.localItems.length', () => isotope.layout() );
+                scope.$watchCollection(() => {
+                  return ([scope.gridCtrl.sortBy]).concat(scope.gridCtrl.filterBy);
+                }, (val) => {
 
-                // TODO: put this in a service
-                function onImagesLoaded(images) {
+                  isotope.arrange({
+                    sortBy: val[0],
+                    filter: function() {
 
-                    var promises = [];
-                    var count = 0;
-                    var imageArray = Array.prototype.slice.call(images);
+                      var value = val[1] ? val[1].value : null,
+                          selector = val[1] ? val[1].selector : null;
 
-                    imageArray.forEach((image) => {
-                        var defer = $q.defer();
-                        promises.push(defer.promise);
-                        if (image.height) { // <- already loaded
-                            defer.resolve(image);
-                            return;
-                        }
-                        image.onload = () => {
-                            defer.resolve(image);
-                        };
-                    });
+                      if (!value || val[1] === '') return true;
 
-                    return $q.all(promises);
+                      var DOMValue = this.querySelector( selector ).innerText;
+                      return DOMValue === value;
 
-                }
-
-                onImagesLoaded(images).then(() => {
-                    console.log('her');
-                    var iso = new Isotope('.w-grid', {
-                        itemSelector: '.w-grid--item',
-                        percentPosition: true,
-                        masonry: {
-                            columnWidth: 300,
-                            gutter: 10
-                        }
-                    });
+                    }
+                  })
                 });
-                
+
+              });
             });
 
 
+            function renderGrid() {
 
+              var images = element[0].querySelectorAll('img');
 
+              return onImagesLoaded(images).then(() => {
+                return new Isotope(element[0], {
+                    itemSelector: '.w-grid--item',
+                    getSortData: getSortOptions(),
+                    masonry: {
+                        columnWidth: 300,
+                        gutter: 10
+                    }
+                });
+              });
 
+            }
 
+            function getSortOptions() {
+              if ( !scope.gridCtrl.sortByOptions ) return {};
+              var options = {};
+              scope.gridCtrl.sortByOptions.forEach( key  => options[key] =  `.${key}`);
+              return options;
+            }
 
         }
     }

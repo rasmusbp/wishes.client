@@ -1,3 +1,15 @@
-<w-grid items="wishesCtrl.wishes">
-  <wish-grid-item wish="item"></wish-grid-item>
+<w-grid
+  items="wishesCtrl.wishes"
+  context="wishesCtrl"
+  sort-by="wishesCtrl.sortGridBy"
+  filter-by="[{ selector: '.owner-id', value: wishesCtrl.selectedOwner }]"
+  sort-by-options="::wishesCtrl.sortGridByOptions"
+>
+
+    <wish-grid-item
+      wish="item"
+      owner="gridCtrl.context.getOwner( item )"
+      on-delete="gridCtrl.context.onWishDelete($wish)"
+      ></wish-grid-item>
+
 </w-grid>

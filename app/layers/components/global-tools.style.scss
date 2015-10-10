@@ -16,4 +16,12 @@
   background: #fff;
   width: 100%;
   border-bottom: 1px solid #ccc;
+
+  .w-list-tools--tool {
+    float: left;
+    margin-right: 10px;
+  }
+  select {
+    height: 30px;
+  }
 }

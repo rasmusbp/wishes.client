@@ -21,13 +21,15 @@ import wishListItem from "./components/wish-items/wish-list-item.directive";
 import wishGridItem from "./components/wish-items/wish-grid-item.directive";
 import wishItemAuthor from "./components/wish-items/wish-item.author.directive";
 import wishQuickActions from "./components/wish-items/wish-quick-actions.directive";
+import ownerQuickActions from "./components/owner-item/owner-quick-actions.directive";
 
 import flagFactory from "./utilities/Flag";
 import defer from "./utilities/defer";
 import notifyFactory from "./utilities/notify";
 import * as stateHelpers from "./utilities/states-helpers";
 import viewport from "./utilities/viewport";
-import wishSchema from "./utilities/wishSchema";
+import WishSchema from "./utilities/WishSchema";
+import onImagesLoaded from "./utilities/onImagesLoaded";
 
 appModule
   // global: init setup
@@ -64,6 +66,7 @@ appModule
   .directive('wishListItem', wishListItem)
   .directive('wishItemAuthor', wishItemAuthor)
   .directive('wishQuickActions', wishQuickActions)
+  .directive('ownerQuickActions', ownerQuickActions)
 
   // shared: utilities
   .factory('Flag', flagFactory)
@@ -72,6 +75,7 @@ appModule
   .provider('states', stateHelpers.states)
   .factory('goToState', stateHelpers.goToState)
   .factory('viewport', viewport)
-  .value('wishSchema', wishSchema)
+  .factory('onImagesLoaded', onImagesLoaded)
+  .value('WishSchema', WishSchema)
 
 ;

@@ -12,7 +12,7 @@ function inputList() {
         link: function link(scope, element, attrs, ngModelCtrl) {
 
             ngModelCtrl.$render = function() {
-                scope.values = ngModelCtrl.$viewValue;
+                scope['values'] = ngModelCtrl.$viewValue;
             };
 
             scope.currentValue = undefined;

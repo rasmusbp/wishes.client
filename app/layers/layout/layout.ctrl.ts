@@ -21,7 +21,9 @@ class LayoutCtrl {
       subtitle: 'Fra alle os til alle jer.'
     };
 
-    goToState.wishes();
+    if ($state.current.name === 'root') {
+      goToState.wishes();
+    }
   }
 
 }

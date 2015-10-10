@@ -3,7 +3,7 @@
 function createEditRoutes( statesProvider, $stateProvider: ng.ui.IStateProvider ) {
 
   var states = statesProvider.get();
-  var resolve = [ (isAuthenticated)=> { return isAuthenticated(); } ];
+  var resolve = [ ( isAuthenticated )=> isAuthenticated() ];
   var editView = {
     'author': {
       templateUrl: 'layers/author/author.view.html',

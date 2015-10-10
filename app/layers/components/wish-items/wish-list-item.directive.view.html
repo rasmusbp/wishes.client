@@ -14,7 +14,7 @@
           <!-- /summary -->
         </div>
 
-        <div ng-if="vm.viewport.is.mediumOrLarge() && !vm.isDeleted" class="col-sm-4">
+        <div ng-if="vm.viewport.is.mediumOrLarge() && vm.isAuthenticated()" class="col-sm-4">
           <wish-quick-actions class="pull-right" controller="vm"></wish-quick-actions>
         </div>
       </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div ng-if="vm.viewport.is.xsmallOrSmall() && !vm.isDeleted && vm.isAuthenticated()">
+  <div ng-if="vm.viewport.is.xsmallOrSmall() && vm.isAuthenticated()">
     <div class="w-divider"></div>
     <wish-quick-actions controller="vm"></wish-quick-actions>
   </div>

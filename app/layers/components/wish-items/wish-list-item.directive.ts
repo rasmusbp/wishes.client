@@ -19,7 +19,9 @@ function wishItemAdminList() {
   return {
     restrict: 'E',
     scope: {
-      wish: '='
+      wish: '=',
+      onDelete: '&',
+      onSave: '&'
     },
     templateUrl: 'layers/components/wish-items/wish-list-item.directive.view.html',
     controller: WishListItemListCtrl,

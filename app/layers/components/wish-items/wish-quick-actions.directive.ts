@@ -2,8 +2,11 @@
 
 import WishItemCtrl from './WishItemCtrl';
 
-class Controller {
-  constructor( private goToState ) {}
+class WishQuickActions {
+  constructor(
+    private goToState
+  ) {
+  }
 }
 
 function wishQuickActions() {
@@ -13,7 +16,7 @@ function wishQuickActions() {
       controller: '='
     },
     templateUrl: 'layers/components/wish-items/wish-quick-actions.directive.view.html',
-    controller: Controller,
+    controller: WishQuickActions,
     controllerAs: 'vm',
     bindToController: true
   }

@@ -3,7 +3,8 @@ class WishItemCtrl {
     wish: any;
     busyFlag: IFlag;
     isEditMode: boolean;
-
+    onDelete: Function;
+    onSave: Function;
     notify: any;
     private MyUser: any;
     private $q: ng.IQService;
@@ -24,6 +25,7 @@ class WishItemCtrl {
               this.wish.title
             );
           })
+          .then(() => this.onSave( this.wish, this.isEditMode ? 'updated' : 'created' ))
           .then( () => this.wish );
     }
     deleteWish() {
@@ -40,6 +42,7 @@ class WishItemCtrl {
               .then(() => {
                 this.notify('info', 'wish_deleted', this.wish.title);
               })
+              .then(() => this.onDelete({ $wish: this.wish }) )
               .then(() => { defer.resolve(this.wish) });
           }
         });

@@ -1,9 +1,19 @@
 <!-- wishes -->
 <div
-  ng-repeat="owner in wishesCtrl.owners"
-  class="panel panel-info">
+  ng-repeat="owner in wishesCtrl.owners | filter:wishesCtrl.selectedOwner"
+  class="panel panel-default">
   <div class="panel-heading">
-   <h3 class="panel-title">{{owner.name}}</h3>
+    <!-- owner actions -->
+   <div class="media">
+     <div class="media-left media-middle">
+      <img ng-if="!wishesCtrl.isAuthenticated()" class="w-avatar" ng-src="{{ owner.avatarUrl }}" alt="" />
+       <owner-quick-actions owner="owner" ng-if="wishesCtrl.isAuthenticated()"></owner-quick-actions>
+     </div>
+     <div class="media-body media-middle">
+       <h3 class="panel-title">{{owner.name}}</h3>
+     </div>
+   </div>
+   <!-- /owner actions -->
  </div>
  <div class="panel-body">
    <ul class="w-list-clean">
@@ -31,6 +41,7 @@
      >
        <wish-list-item
           wish="wish"
+          on-delete="wishesCtrl.onWishDelete($wish)"
        ></wish-list-item>
      </li>
      <!-- /wishes -->

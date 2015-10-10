@@ -100,9 +100,9 @@ class Controller {
 
     uploader.onAfterAddingFile = (item) => {
 
-      // if upload is still in progress after 0.5s
+      // if upload is still in progress after 0.2s
       // then show progress bar
-      this.deferedUploadFlag = defer(this.uploadingFlag.switchOn);
+      this.deferedUploadFlag = defer(this.uploadingFlag.switchOn, 200);
 
       // auto-upload doesn't work on touch devices
       // so we process this manually

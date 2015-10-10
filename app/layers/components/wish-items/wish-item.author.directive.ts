@@ -9,6 +9,7 @@ class WishItemAuthorCtrl extends WishItemCtrl {
     uploader1: any;
     uploader2: any;
     isUserDone: boolean; // updated in view
+
     onImageRemove() {
       if ( !this.isEditMode ) return;
       this.updateWish();
@@ -18,18 +19,18 @@ class WishItemAuthorCtrl extends WishItemCtrl {
       this.updateWish();
     }
     onImageUploadError() {
-      console.log('lol');
       this.notify('error', 'image_upload_error');
     }
     submit() {
         this.updateWish()
             .then(() => {
                 if (this.isUserDone) {
-                    this.goToState.admin();
+                    this.goToState.wishes();
                 } else {
                     this.$state.reload();
                 }
-            });
+            })
+            .catch(() => this.notify('error', 'submit_error') )
     }
     constructor(
         // super's dependencies
@@ -37,7 +38,7 @@ class WishItemAuthorCtrl extends WishItemCtrl {
 
         // local dependencies
         private goToState,
-        private $state: ng.ui.IStateService,
+        private $state,
         Owner, /*: loopback.IOwner <- interface in the making */
 
         FileUploader
@@ -55,7 +56,9 @@ function wishItemAuthor() {
         restrict: 'E',
         scope: {
             wish: '=',
-            isEditMode: '='
+            isEditMode: '=',
+            onDelete: '&',
+            onSave: '&'
         },
         templateUrl: 'layers/components/wish-items/wish-item.author.directive.view.html',
         controller: WishItemAuthorCtrl,

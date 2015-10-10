@@ -1,0 +1,21 @@
+<div class="btn-group owner-quick-actions" role="group">
+
+  <!-- toggle active -->
+  <button type="button" class="btn btn-default">
+    <span class="owner-quick-actions--avatar">
+      <img class="w-avatar" ng-src="{{ vm.owner.avatarUrl }}" alt="" />
+    </span>
+    <!-- NOTE:
+        ng-change="vm.updateWish" is without ´()´
+        due to a bug in the <switch> directive
+      -->
+    <switch
+      class="small green"
+      name="isActive"
+      ng-model="vm.owner.isActive"
+      ng-change="vm.updateOwnerProxy"
+    ></switch>
+  </button>
+  <!-- /toggle active -->
+
+</div>

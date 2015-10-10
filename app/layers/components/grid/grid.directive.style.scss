@@ -1,8 +1,9 @@
-.w-grid {
+.w-grid, w-grid {
+  display: block;
   margin: 0;
   padding: 0
 }
-.w-grid > li {
+.w-grid > div, w-grid > div {
   list-style: none;
   margin: 0;
   padding: 0;

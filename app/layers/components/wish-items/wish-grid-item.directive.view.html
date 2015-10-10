@@ -1,8 +1,24 @@
-<div class="panel panel-default">
+<!-- Only use by Isotope for sorting & filtering  -->
+<div style="display:none;" class="owner-name">{{vm.owner.name}}</div>
+<div style="display:none;" class="owner-id" >{{vm.owner.id}}</div>
+
+<div class="panel panel-default" ng-style="{'opacity': vm.isDeleted ? 0.3 : 1}">
   <div class="panel-heading">
     <div class="media">
       <div class="media-left media-middle">
-        <img class="w-avatar" src="/api/containers/avatars/download/rasmus.jpg" alt="" />
+
+        <!-- owner.avatarUrl -->
+        <img ng-if="!vm.isAuthenticated()"
+          class="w-avatar" ng-src="{{ vm.owner.avatarUrl }}" alt="{{vm.owner.name}}" />
+        <!-- /owner.avatarUrl -->
+
+        <!-- owner actions -->
+        <owner-quick-actions
+          ng-if="vm.isAuthenticated()"
+          owner="vm.owner">
+        </owner-quick-actions>
+        <!-- /owner actions -->
+
       </div>
       <div style="width: auto;" class="media-body media-middle">
         <h5 class="text-capitalize">{{vm.wish.title}}</h5>
