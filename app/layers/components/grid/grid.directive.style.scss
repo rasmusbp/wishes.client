@@ -1,16 +1,17 @@
-.w-grid, w-grid {
+w-grid {
   display: block;
   margin: 0;
   padding: 0
 }
-.w-grid > div, w-grid > div {
-  list-style: none;
+w-grid > div {
   margin: 0;
   padding: 0;
-  width: 100%;
+  //width: 100%;
   max-width: 300px;
-
 }
-.w-grid-sizer {
-  width: 25%;
+.w-grid--item {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .w-grid--item { width: 32%; }
 }

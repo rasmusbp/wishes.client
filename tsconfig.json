@@ -35,7 +35,6 @@
         "./app/layers/utilities/Flag.ts",
         "./app/layers/utilities/WishSchema.ts",
         "./app/layers/utilities/defer.ts",
-        "./app/layers/utilities/isSelectedFilter.ts",
         "./app/layers/utilities/messages.ts",
         "./app/layers/utilities/notify.ts",
         "./app/layers/utilities/onImagesLoaded.ts",

@@ -83,7 +83,7 @@ function grid(
                     itemSelector: '.w-grid--item',
                     getSortData: getSortOptions(),
                     masonry: {
-                        columnWidth: 300,
+                        columnWidth: '.w-grid--item',
                         gutter: 10
                     }
                 });
