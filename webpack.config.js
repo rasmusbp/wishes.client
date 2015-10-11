@@ -20,15 +20,18 @@ var config = {
       // path: <- will be set at runtime by Gulp,
   },
   resolve: {
-    extensions: ['', '.js', '.ts'],
+    extensions: ['', '.js', '.ts', '.html'],
     alias: {}
 
   },
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'awesome-typescript-loader' }
-    ],
-    noParse: [],
+      { test: /\.ts$/, loader: 'awesome-typescript-loader' },
+      /*{
+        test: /\.html$/,
+        loader: 'ng-cache'
+      }*/
+    ]
   },
   plugins: [
     // vendor splitting

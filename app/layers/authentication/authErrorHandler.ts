@@ -15,7 +15,7 @@ function authErrorHandler($httpProvider: ng.IHttpProvider) {
                 if (rejection.status == 500) {
                     notify('error', 'server_error');
                 }
-                
+
                 return $q.reject(rejection);
             }
         };

@@ -22,7 +22,7 @@ function grid(
             sortByOptions: '=?'
         },
         transclude: true,
-        templateUrl: 'layers/components/grid/grid.directive.view.html',
+        template: '<span></span>', // <- transclusion is programmaticaly added in link method
         controller: Controller,
         controllerAs: 'gridCtrl',
         bindToController: true,

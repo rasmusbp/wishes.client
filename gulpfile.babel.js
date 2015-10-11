@@ -1,5 +1,6 @@
 // generated on 2015-10-01 using generator-gulp-webapp 1.0.3
 import gulp from 'gulp';
+import rsync from 'gulp-rsync';
 import url from 'url';
 import proxy from 'proxy-middleware';
 import gulpLoadPlugins from 'gulp-load-plugins';
@@ -112,12 +113,17 @@ gulp.task('webpack:dev', ( callback ) => {
 
 });
 
-gulp.task('webpack:dist', ( callback ) => {
+gulp.task('webpack:build', ( callback ) => {
 
     var config = Object.create(webpackConfig);
 
     config.devtool = 'source-map';
     config.output.path = 'dist/layers';
+    config.plugins.push(
+      new webpack.optimize.UglifyJsPlugin({
+        mangle: false
+      })
+    );
 
     runWebpack( config, callback );
 
@@ -199,8 +205,20 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['webpack:build', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+});
+
+gulp.task('deploy', ['build'],() => {
+  return gulp.src('dist/**')
+    .pipe(rsync({
+      root: 'dist/',
+      hostname: gutil.env.host,
+      destination: 'client/',
+      username: gutil.env.user,
+      incremental: true,
+      progress: true
+    }));
 });
 
 gulp.task('default', ['clean'], () => {
