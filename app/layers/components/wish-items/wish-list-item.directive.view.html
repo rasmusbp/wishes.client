@@ -9,7 +9,14 @@
 
         <div class="col-xs-12 col-sm-8">
           <!-- summary -->
-          <h5 class="margin-bottom-5">{{ vm.wish.title }}</h5>
+          <h5 class="margin-bottom-5">
+            <span ng-if="vm.wish.price"
+                  class="label label-default">{{vm.wish.price}} kr.
+            </span> | 
+            {{ vm.wish.title }}
+
+          </h5>
+
           <p class="no-margin text-muted">{{ vm.wish.description }}</p>
           <!-- /summary -->
         </div>

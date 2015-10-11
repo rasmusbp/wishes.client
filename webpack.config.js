@@ -16,8 +16,8 @@ var config = {
   },
   output: {
       publicPath: './',
-      path: '.tmp/layers',
       filename: 'main.js'
+      // path: <- will be set at runtime by Gulp,
   },
   resolve: {
     extensions: ['', '.js', '.ts'],
@@ -55,6 +55,5 @@ var vendors = [
 vendors.forEach(function( vendor ) {
     config.addVendor.apply(config, vendor);
 });
-
 
 module.exports = config;

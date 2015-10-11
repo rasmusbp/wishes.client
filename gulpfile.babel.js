@@ -93,17 +93,33 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
+function runWebpack( config, callback ) {
+  webpack(config, function(err, stats) {
+     if(err) throw new gutil.PluginError("webpack", err);
+     gutil.log("[webpack]", stats.toString());
+     callback();
+  });
+}
+
 gulp.task('webpack:dev', ( callback ) => {
 
     var config = Object.create(webpackConfig);
-    //config.devtool = 'eval';
-    config.debug = true;
 
-    webpack(config, function(err, stats) {
-       if(err) throw new gutil.PluginError("webpack", err);
-       gutil.log("[webpack]", stats.toString());
-       callback();
-    });
+    config.devtool = 'eval';
+    config.debug = true;
+    config.output.path = '.tmp/layers';
+    runWebpack( config, callback );
+
+});
+
+gulp.task('webpack:dist', ( callback ) => {
+
+    var config = Object.create(webpackConfig);
+
+    config.devtool = 'source-map';
+    config.output.path = 'dist/layers';
+
+    runWebpack( config, callback );
 
 });
 
@@ -183,7 +199,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
