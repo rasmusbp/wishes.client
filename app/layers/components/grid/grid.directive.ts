@@ -35,7 +35,7 @@ function grid(
             // programmaticaly transclude content so we can inject the scope
             transclude(scope, function(clone, scope) {
 
-                var item = angular.element( itemTemplate );
+                var item = angular.element(itemTemplate);
 
                 item.append(clone);
                 var itemCompiled = $compile(item.clone())(scope);
@@ -45,57 +45,64 @@ function grid(
             });
 
             var dispose = scope.$watch('gridCtrl.localItems.length', (length) => {
-              if ( !length ) return;
-              dispose();
-              renderGrid().then((isotope) => {
+                if (!length) return;
+                dispose();
+                
+                // TODO: clean up
+                $timeout(() => { // <- wait until rendering of template is done
 
-                scope.$watch('gridCtrl.localItems.length', () => isotope.layout() );
-                scope.$watchCollection(() => {
-                  return ([scope.gridCtrl.sortBy]).concat(scope.gridCtrl.filterBy);
-                }, (val) => {
+                    renderGrid().then((isotope) => {
 
-                  isotope.arrange({
-                    sortBy: val[0],
-                    filter: function() {
+                        scope.$watch('gridCtrl.localItems.length', () => isotope.layout());
+                        scope.$watchCollection(() => {
+                            return ([scope.gridCtrl.sortBy]).concat(scope.gridCtrl.filterBy);
+                        }, (val) => {
 
-                      var value = val[1] ? val[1].value : null,
-                          selector = val[1] ? val[1].selector : null;
+                            isotope.arrange({
+                                sortBy: val[0],
+                                filter: function() {
 
-                      if (!value || val[1] === '') return true;
+                                    var value = val[1] ? val[1].value : null,
+                                        selector = val[1] ? val[1].selector : null;
 
-                      var DOMValue = this.querySelector( selector ).innerText;
-                      return DOMValue === value;
+                                    if (!value || val[1] === '') return true;
 
-                    }
-                  })
+                                    var DOMValue = this.querySelector(selector).innerText;
+                                    return DOMValue === value;
+
+                                }
+                            })
+                        });
+
+                    });
+
                 });
-
-              });
             });
 
 
             function renderGrid() {
 
-              var images = element[0].querySelectorAll('img');
+                var images = element[0].querySelectorAll('img');
 
-              return onImagesLoaded(images).then(() => {
-                return new Isotope(element[0], {
-                    itemSelector: '.w-grid--item',
-                    getSortData: getSortOptions(),
-                    masonry: {
-                        columnWidth: '.w-grid--item',
-                        gutter: 10
-                    }
+                return onImagesLoaded(images).then(() => {
+
+                    return new Isotope(element[0], {
+                        itemSelector: '.w-grid--item',
+                        getSortData: getSortOptions(),
+                        masonry: {
+                            columnWidth: '.w-grid--item',
+                            gutter: 10
+                        }
+                    });
                 });
-              });
 
             }
 
             function getSortOptions() {
-              if ( !scope.gridCtrl.sortByOptions ) return {};
-              var options = {};
-              scope.gridCtrl.sortByOptions.forEach( key  => options[key] =  `.${key}`);
-              return options;
+                if (!scope.gridCtrl.sortByOptions) return {};
+                var options = {};
+                scope.gridCtrl.sortByOptions.forEach(key  => options[key] = `.${key}`);
+                return options;
             }
 
         }

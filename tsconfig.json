@@ -14,7 +14,6 @@
         "./app/layers/main.d.ts",
         "./app/layers/main.ts",
         "./app/layers/root.routes.ts",
-        "./app/layers/template-cache.ts",
         "./app/layers/authentication/auth.routes.ts",
         "./app/layers/authentication/authErrorHandler.ts",
         "./app/layers/authentication/isAuthenticated.ts",

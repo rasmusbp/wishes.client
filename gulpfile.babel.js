@@ -106,7 +106,7 @@ gulp.task('webpack:dev', ( callback ) => {
 
     var config = Object.create(webpackConfig);
 
-    config.devtool = 'eval';
+    config.devtool = 'source-map';
     config.debug = true;
     config.output.path = '.tmp/layers';
     runWebpack( config, callback );
