@@ -3,6 +3,8 @@ class WishesCtrl {
   owners: any;
   view: string;
 
+  isBusyFlag: IFlag;
+
   selectedOwner: string;
 
   isAuthenticated() {
@@ -43,20 +45,28 @@ class WishesCtrl {
   constructor(
       private MyUser,
       private $timeout : ng.ITimeoutService,
+      Flag : IFlagConstructor,
       Owner, /*: loopback.IOwner <- interface in the making */
       Wish /*: loopback.IWish <- interface in the making */
   ) {
+
+      this.isBusyFlag = new Flag('isBusy', this, true);
 
       this.view = 'grid';
       this.wishes = undefined;
 
       this.selectedOwner = undefined;
 
+      // Resolve `owners` and `wishes` and set isBusy state to false,
       this.owners = Owner.find(null, ( owners ) => {
         Wish.find(null, ( wishes ) => {
+
           this.wishes = wishes.filter(( wish ) => {
             return owners.some(( owner ) => owner.id === wish.ownerId);
           });
+
+          this.isBusyFlag.switchOff();
+
         });
       });
 

@@ -4,7 +4,9 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "../layers/components/spinners/spinner.directive.style.scss";
+@import "../layers/components/spinners/spinners.style.scss";
+@import "../layers/components/spinners/spinner-wrapper.directive.style.scss";
+@import "../layers/components/spinners/spinner-fullscreen.directive.style.scss";
 @import "../layers/components/image-uploader/image-uploader.directive.style.scss";
 @import "../layers/components/grid/grid.directive.style.scss";
 @import "../layers/components/wish-items/wish-grid-item.directive.style.scss";

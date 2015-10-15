@@ -12,7 +12,7 @@ import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
 import AuthorCtrl from "./author/author.ctrl";
 import loginForm from "./authentication/login.directive";
-import spinnerWrapper from "./components/spinners/spinner.directive";
+import spinner from "./components/spinners/spinner.directive";
 import inputList from "./components/input-list/input-list.directive";
 import imageUploader from "./components/image-uploader/image-uploader.directive";
 import grid from "./components/grid/grid.directive";
@@ -58,7 +58,7 @@ appModule
   .controller('wishesCtrl', WishesCtrl)
 
   // shared: components
-  .directive('wSpinnerWrapper', spinnerWrapper)
+  .directive('wSpinner', spinner)
   .directive('wGrid', grid)
   .directive('wInputList', inputList)
   .directive('wImageUploader', imageUploader)

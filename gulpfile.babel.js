@@ -21,11 +21,11 @@ gulp.task('styles', () => {
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
-      outputStyle: 'expanded',
+      outputStyle: 'compressed',
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['last 1 version']}))
+    //.pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));

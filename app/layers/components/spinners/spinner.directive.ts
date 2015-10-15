@@ -19,7 +19,12 @@ function spinnerWrapper() {
       diameter: '@'
     },
     transclude: true,
-    templateUrl: 'layers/components/spinners/spinner.directive.view.html',
+    templateUrl: ( element, attrs ) => {
+      return ({
+        'wrapper': 'layers/components/spinners/spinner-wrapper.directive.view.html',
+        'fullscreen': 'layers/components/spinners/spinner-fullscreen.directive.view.html'
+      })[attrs.template];
+    },
     controller: Controller,
     controllerAs: 'vm',
     bindToController: true
