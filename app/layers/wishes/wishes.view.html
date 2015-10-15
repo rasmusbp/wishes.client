@@ -23,7 +23,9 @@
       </div>
       <!-- /view toggler -->
 
-      <div class="form-group w-list-tools--tool">
+      <div
+        ng-if="wishesCtrl.owners.length > 1"
+        class="form-group w-list-tools--tool">
         <select
           ng-model="wishesCtrl.selectedOwner"
           ng-change="wishesCtrl.filterWishes($option)"
