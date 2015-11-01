@@ -1,0 +1,28 @@
+.w-spinner-wrapper {
+  position: relative;
+
+  &.w-spinner-wrapper--active {
+    &:before {
+         background-color: rgba(255,255,255, 0.7);
+         position: absolute;
+         content: '';
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         z-index: 9999;
+     }
+  }
+
+   .w-spinner-layout {
+     z-index: 1001;
+     position: absolute;
+     width: 100%;
+
+     &.w-spinner-layout--linear {
+        bottom: 0;
+     }
+
+   }
+
+}

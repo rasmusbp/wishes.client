@@ -132,7 +132,8 @@ gulp.task('webpack:build', ( callback ) => {
 gulp.task('serve', ['webpack:dev', 'styles', 'fonts'], () => {
 
   // proxy local API calls
-  var proxyOptions = url.parse('http://localhost:3000/api');
+  var proxyHost = gutil.env.proxy || 'localhost:3000'
+  var proxyOptions = url.parse(`http://${proxyHost}/api`);
   proxyOptions.route = '/api';
 
   browserSync({

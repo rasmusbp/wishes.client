@@ -1,24 +1,22 @@
 class WishesCtrl {
   wishes: any;
   owners: any;
-  view: string;
 
   isBusyFlag: IFlag;
 
-  selectedOwner: string;
 
   isAuthenticated() {
     return this.MyUser.isAuthenticated();
   }
 
   setView(view) {
-    this.view = view;
+    this.wishesManager.set('view', view);
   }
   isGridView() {
-    return this.view === 'grid';
+    return this.wishesManager.view === 'grid';
   }
   isListView() {
-    return this.view === 'list';
+    return this.wishesManager.view === 'list';
   }
 
   getOwner( wish ) {
@@ -26,7 +24,7 @@ class WishesCtrl {
     return this.owners.find(( owner ) => owner.id === wish.ownerId );
   }
 
-  filterGridBy = this.selectedOwner;
+  filterGridBy = this.wishesManager.selectedOwner;
   sortGridByOptions = ['owner-name'];
   sortGridBy = 'owner-name';
 
@@ -45,6 +43,7 @@ class WishesCtrl {
   constructor(
       private MyUser,
       private $timeout : ng.ITimeoutService,
+      private wishesManager,
       Flag : IFlagConstructor,
       Owner, /*: loopback.IOwner <- interface in the making */
       Wish /*: loopback.IWish <- interface in the making */
@@ -52,10 +51,7 @@ class WishesCtrl {
 
       this.isBusyFlag = new Flag('isBusy', this, true);
 
-      this.view = 'grid';
       this.wishes = undefined;
-
-      this.selectedOwner = undefined;
 
       // Resolve `owners` and `wishes` and set isBusy state to false,
       this.owners = Owner.find(null, ( owners ) => {

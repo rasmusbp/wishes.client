@@ -2,6 +2,7 @@ node_modules
 dist
 .tmp
 .sass-cache
+*.sublime-project
 bower_components
 test/bower_components
 app/layers/*.js

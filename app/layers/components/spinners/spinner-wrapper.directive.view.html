@@ -1,0 +1,10 @@
+<div ng-class="{'w-spinner-wrapper--active' : vm.showWhen }" class="w-spinner-wrapper">
+
+    <div
+      ng-if="vm.showWhen && vm.type === 'linear'"
+      class="w-spinner-layout w-spinner-layout--linear">
+      <div class="w-spinner--linear"></div>
+    </div>
+
+  <ng-transclude></ng-transclude>
+</div>

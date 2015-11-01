@@ -10,6 +10,7 @@ import Logintrl from "./authentication/login.ctrl";
 import isAuthenticated from "./authentication/isAuthenticated";
 import LayoutCtrl from "./layout/layout.ctrl";
 import WishesCtrl from "./wishes/wishes.ctrl";
+import WishesManager from "./wishes/wishes.manager";
 import AuthorCtrl from "./author/author.ctrl";
 import loginForm from "./authentication/login.directive";
 import spinner from "./components/spinners/spinner.directive";
@@ -56,6 +57,7 @@ appModule
   // layer: wishes
   .config(wishesRoutes)
   .controller('wishesCtrl', WishesCtrl)
+  .service('wishesManager', WishesManager)
 
   // shared: components
   .directive('wSpinner', spinner)

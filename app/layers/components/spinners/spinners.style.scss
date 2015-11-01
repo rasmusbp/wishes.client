@@ -1,0 +1,102 @@
+// Linear
+.w-spinner--linear {
+     height: 4px;
+     width: 100%;
+     position: relative;
+     overflow: hidden;
+     background-color: #ddd;
+
+   &:before{
+     display: block;
+     position: absolute;
+     content: "";
+     left: -200px;
+     width: 200px;
+     height: 4px;
+     background-color: #2980b9;
+     animation: linearloading 2s linear infinite;
+   }
+}
+
+
+// Circular
+/* :not(:required) hides this rule from IE9 and below */
+.w-spinner--circular:not(:required) {
+  -moz-animation: circularloading 1250ms infinite linear;
+  -webkit-animation: circularloading 1250ms infinite linear;
+  animation: circularloading 1250ms infinite linear;
+  border: 3px solid #38e;
+  border-right-color: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 32px;
+  height: 32px;
+}
+
+// animations
+@-moz-keyframes linearloading {
+   from {left: -200px; width: 30%;}
+   50% {width: 30%;}
+   70% {width: 70%;}
+   80% { left: 50%;}
+   95% {left: 120%;}
+   to {left: 100%;}
+}
+
+@-webkit-keyframes linearloading {
+   from {left: -200px; width: 30%;}
+   50% {width: 30%;}
+   70% {width: 70%;}
+   80% { left: 50%;}
+   95% {left: 120%;}
+   to {left: 100%;}
+}
+
+@keyframes linearloading {
+   from {left: -200px; width: 30%;}
+   50% {width: 30%;}
+   70% {width: 70%;}
+   80% { left: 50%;}
+   95% {left: 120%;}
+   to {left: 100%;}
+}
+
+
+@-moz-keyframes circularloading {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes circularloading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes circularloading {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
