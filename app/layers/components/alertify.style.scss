@@ -55,16 +55,16 @@
 .alertify-logs {
 	position: fixed;
 	z-index: 5000;
-	bottom: 10px;
-	right: 10px;
-	width: 300px;
+	bottom: 40px;
+	right: 0;
+	width: 100%;
 }
 .alertify-logs-hidden {
 	display: none;
 }
 	.alertify-log {
 		display: block;
-		margin-top: 10px;
+		margin-top: 0;
 		position: relative;
 		right: -300px;
 		opacity: 0;
@@ -148,7 +148,7 @@
 .alertify {
   background: #FFF;
   border: 1px solid #ccc;
-  border-radius: 2px;
+  border-radius: 0;
 	box-shadow: 0 3px 3px rgba(0,0,0,.3);
 	-webkit-background-clip: padding;     /* Safari 4? Chrome 6? */
 	   -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -157,7 +157,7 @@
 	.alertify-text {
 		border: 1px solid #CCC;
 		padding: 10px;
-		border-radius: 4px;
+		border-radius: 0;
 	}
 	.alertify-button {
 		border-radius: 4px;
@@ -194,7 +194,7 @@
 	background: #1F1F1F;
 	background: rgba(0,0,0,.9);
 	padding: 15px;
-	border-radius: 4px;
+	border-radius: 0;
 	color: #FFF;
 }
 	.alertify-log-error {
