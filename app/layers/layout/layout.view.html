@@ -16,34 +16,39 @@
 <!-- /main views -->
 
 <!-- /admin tools -->
-<div class="w-tools" ng-if="layoutCtrl.MyUser.isAuthenticated()">
-  <button class="btn btn-link pull-right" ng-click="layoutCtrl.goToState.create()">
-    <img src="images/icons/add.svg" class="w-avatar" />
-  </button>
+<div class="w-tools">
+
+      <button class="w-tool-btn" 
+              ng-class="{'is-active': layoutCtrl.$state.is('root.wishes')}"
+              ng-click="layoutCtrl.goToState.wishes()">
+        <span class="glyphicon glyphicon-gift"></span>
+      </button>
+
+      <button class="w-tool-btn"
+              ng-class="{'is-active': layoutCtrl.$state.is('root.create')}"
+              ng-if="layoutCtrl.MyUser.isAuthenticated()" 
+              ng-click="layoutCtrl.goToState.create()">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+  
+      <button class="w-tool-btn"
+              ng-class="{'is-active': layoutCtrl.$state.is('root.login')}"
+              ng-if="!layoutCtrl.MyUser.isAuthenticated()" 
+              ng-click="layoutCtrl.goToState.login()">
+          <span class="glyphicon glyphicon-lock"></span>
+      </button>
+
+      <button class="w-tool-btn" 
+                ng-if="layoutCtrl.MyUser.isAuthenticated()" 
+                ng-click="layoutCtrl.goToState.logout()">
+          <span class="glyphicon glyphicon-off"></span>
+      </button>
+ 
 </div>
 <!-- /admin tools -->
 
 <div class="footer">
   <div class="container-fluid">
     <p>♥ fra Frederiksberg</p>
-    <ul class="w-list--link-list">
-      <li
-          ui-sref="root.wishes"
-          ui-sref-active="active">
-          <a href>Ønsker</a>
-      </li>
-      <li
-        ui-sref="root.login"
-        ui-sref-active="active"
-        ng-if="!layoutCtrl.MyUser.isAuthenticated()">
-        <a href>Login</a>
-      </li>
-      <li
-        ui-sref="root.logout"
-        ui-sref-active="active"
-        ng-if="layoutCtrl.MyUser.isAuthenticated()">
-        <a href>Logout</a>
-      </li>
-    </ul>
   </div>
 </div>
