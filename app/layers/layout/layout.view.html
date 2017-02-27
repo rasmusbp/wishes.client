@@ -1,24 +1,15 @@
-<div
-  ng-if="layoutCtrl.isMainView()"
-  class="top-theme-banner theme--{{layoutCtrl.theme.id}}">
-  <div class="top-theme__titles">
-    <h1>{{layoutCtrl.theme.title}}</h1>
-    <p>{{layoutCtrl.theme.subtitle}}</p>
-  </div>
-</div>
-
 <!-- main views -->
 <div class="container-fluid">
   <div ui-view="login"></div>
   <div ui-view="author"></div>
-  <div ui-view="wishes"></div>
+  <div style="margin-top: 70px;" ui-view="wishes"></div>
 </div>
 <!-- /main views -->
 
 <!-- /admin tools -->
 <div class="w-tools">
 
-      <button class="w-tool-btn" 
+      <button class="w-tool-btn"
               ng-class="{'is-active': layoutCtrl.$state.is('root.wishes')}"
               ng-click="layoutCtrl.goToState.wishes()">
         <span class="glyphicon glyphicon-gift"></span>
@@ -26,24 +17,24 @@
 
       <button class="w-tool-btn"
               ng-class="{'is-active': layoutCtrl.$state.is('root.create')}"
-              ng-if="layoutCtrl.MyUser.isAuthenticated()" 
+              ng-if="layoutCtrl.MyUser.isAuthenticated()"
               ng-click="layoutCtrl.goToState.create()">
         <span class="glyphicon glyphicon-plus"></span>
       </button>
-  
+
       <button class="w-tool-btn"
               ng-class="{'is-active': layoutCtrl.$state.is('root.login')}"
-              ng-if="!layoutCtrl.MyUser.isAuthenticated()" 
+              ng-if="!layoutCtrl.MyUser.isAuthenticated()"
               ng-click="layoutCtrl.goToState.login()">
           <span class="glyphicon glyphicon-lock"></span>
       </button>
 
-      <button class="w-tool-btn" 
-                ng-if="layoutCtrl.MyUser.isAuthenticated()" 
+      <button class="w-tool-btn"
+                ng-if="layoutCtrl.MyUser.isAuthenticated()"
                 ng-click="layoutCtrl.goToState.logout()">
           <span class="glyphicon glyphicon-off"></span>
       </button>
- 
+
 </div>
 <!-- /admin tools -->
 

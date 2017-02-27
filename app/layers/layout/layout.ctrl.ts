@@ -14,13 +14,6 @@ class LayoutCtrl {
     private MyUser /*: loopback.IMyUser <- interface in the making */
   ) {
 
-    // TODO: make this part of API resources
-    this.theme = {
-      id: 'xmas',
-      title: 'Juleønsker.',
-      subtitle: 'Fra alle os til alle jer.'
-    };
-
     if ($state.current.name === 'root') {
       goToState.wishes();
     }

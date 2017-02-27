@@ -1,12 +1,12 @@
+// DEPRECATED
 .top-theme-banner {
 
-  background-repeat: no-repeat;
+  background-color: #42afff;
   width: 100%;
   height: 250px;
   margin-bottom: 15px;
   margin-top: 60px; // make room for fixed top nav
   background-size: cover;
-  background-position: center center;
 
   position: relative;
 
@@ -34,13 +34,6 @@
     font-weight: bold;
     margin: 0 0 5px 0;
     padding: 0;
-  }
-
-  &.theme--xmas {
-    h1, p {
-      color: #fff;
-    }
-    background-image: url('../images/themes/xmas.png');
   }
 
 }

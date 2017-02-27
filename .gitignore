@@ -2,6 +2,8 @@ node_modules
 dist
 .tmp
 .sass-cache
+.idea
+.vscode
 *.sublime-project
 bower_components
 test/bower_components
